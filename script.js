@@ -1,9 +1,10 @@
 // Cuff's Coastal Landscaping — minimal site JavaScript.
-// Three jobs: toggle the hamburger menu open/closed, keep the
-// footer's copyright year correct without editing it by hand every
-// January, and pick the right map zoom level for the screen size.
-// (The services/FAQ accordions use the native <details> element, so
-// they need no JavaScript at all.)
+// Four jobs: toggle the hamburger menu open/closed, keep the footer's
+// copyright year correct without editing it by hand every January,
+// pick the right map zoom level for the screen size, and animate the
+// Services/FAQ accordions open and closed smoothly. (They're still
+// real <details>/<summary> elements underneath — this just adds a
+// transition on top instead of the instant native snap-open.)
 
 document.addEventListener("DOMContentLoaded", function () {
   var toggle = document.querySelector(".nav-toggle");
@@ -39,4 +40,47 @@ document.addEventListener("DOMContentLoaded", function () {
   if (mapFrame && window.matchMedia("(min-width: 700px)").matches) {
     mapFrame.src = mapFrame.dataset.srcDesktop;
   }
+
+  // Animate every <details> inside the given container: click the
+  // summary, and instead of the instant native open/close, the inner
+  // .accordion-panel's max-height transitions (see the CSS). The
+  // <details> element's own open/closed state still tracks correctly
+  // underneath — closing just waits for the animation to finish
+  // before actually setting details.open = false, so screen readers
+  // don't announce it as closed until it visually is.
+  function animateAccordions(containerSelector) {
+    var container = document.querySelector(containerSelector);
+    if (!container) return;
+
+    container.querySelectorAll("details").forEach(function (details) {
+      var summary = details.querySelector("summary");
+      var panel = details.querySelector(".accordion-panel");
+      if (!summary || !panel) return;
+
+      summary.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        if (details.open) {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+          requestAnimationFrame(function () {
+            panel.style.maxHeight = "0px";
+          });
+          panel.addEventListener(
+            "transitionend",
+            function handler() {
+              details.open = false;
+              panel.removeEventListener("transitionend", handler);
+            },
+            { once: true }
+          );
+        } else {
+          details.open = true;
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+      });
+    });
+  }
+
+  animateAccordions(".service-groups");
+  animateAccordions(".faq-list");
 });

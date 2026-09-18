@@ -9,8 +9,10 @@ Explanations should be kept simple as changes are made.
 - Name: Cuff's Coastal Landscaping
 - Phone: +1 604 845 8999 (tap-to-call)
 - Email: cufflandscaping@gmail.com
-- Service areas: Victoria, Saanich, Oak Bay, and Esquimalt, BC (all
-  confirmed by the site owner)
+- Service areas: the Greater Victoria area, including Victoria, Saanich,
+  Oak Bay, Gordon Head, and Esquimalt, BC (all confirmed by the site
+  owner — Gordon Head is a neighbourhood within Saanich, mentioned by
+  name at the site owner's request)
 - Google Business Profile: created, awaiting Google verification — use
   [GOOGLE_BUSINESS_URL] placeholder for the reviews link/button until
   the real profile link is provided
@@ -33,10 +35,15 @@ Explanations should be kept simple as changes are made.
   a hover caption naming a service category (e.g. "Lawn Care", "Hedge
   Trimming") instead. Replace each photo file and its caption/alt text
   with the real thing as real project photos come in.
-- Whether homeowners need to be home for the on-site quote: unknown —
-  use [NEED_HOME_FOR_QUOTE] placeholder in the FAQ
-- Range of project sizes handled (small yards only? Also larger
-  properties?): unknown — use [PROJECT_SIZE_RANGE] placeholder in the FAQ
+- Whether homeowners need to be home for the on-site quote, and the
+  range of project sizes handled: the site owner asked Claude to write
+  real answers for these two FAQ questions rather than leave them as
+  placeholders (see the FAQ in index.html) — they're reasonable,
+  generic, non-committal answers Claude wrote on request, not confirmed
+  policy from the business owner. Worth double-checking with him.
+- The "Do you charge for a design consultation?" FAQ question was
+  removed entirely at the site owner's request (previously a
+  [DESIGN_CONSULTATION_FEE] placeholder).
 - Contact form backend: the quote form on the page needs a Formspree
   account (free tier) to actually deliver email, since GitHub Pages has
   no server of its own. [FORMSPREE_ENDPOINT] in the form's `action`
@@ -117,26 +124,45 @@ its contact form, which conflicts with rule 4 above).
 
 Header (logo + full "Cuff's Coastal Landscaping" title, one line +
 phone + "Get a Free Quote" button + a hamburger menu button, animated
-open/close, that opens a dropdown of section links — a compact
-right-anchored card on desktop, a full-width bar on mobile) → Hero
-(headline, CTA buttons, trust badges) → Recent Projects (photo
+open/close, that opens a dropdown of CENTERED section links — a
+compact right-anchored card on desktop, a full-width bar on mobile) →
+Hero (headline, CTA buttons, trust badges) → Recent Projects (photo
 gallery, placed right after the hero; each photo has a hover-reveal
 caption naming a service category) → Why Choose Us (3 value-prop
 cards: reliable/timely, tailored plans, small dedicated crew) →
 Reviews (placeholder until Google reviews exist) → What We Do
-(services, collapsed into <details> accordions — deliberately
-de-emphasized, not the main focus of the page; 4 categories: Lawn &
-Garden Care, Cleanup & Seasonal Maintenance, Planting & Beds, Winter &
-Additional Services) → About (text + stats grid) → Service Area (map,
-centered on lat/lng coordinates rather than a text query — a query
-like "Greater Victoria, BC" made Google drop a stray business pin.
-Two zoom levels via script.js, since the map's on-screen box is a very
-different size on mobile vs. desktop) → FAQ (<details> accordions) →
-Contact (call/email buttons + a quote form) → Footer (with quick-link
-nav matching the header's hamburger menu, now including FAQ).
+(services, collapsed into <details> accordions with a smooth animated
+open/close via script.js — deliberately de-emphasized, not the page's
+main focus; 4 categories: Lawn & Garden Care, Cleanup & Seasonal
+Maintenance, Planting & Beds, Winter & Additional Services) → About
+(text + stats grid) → Service Area (map, capped at 600px wide and
+centered — was "way too big" full-width before; centered on lat/lng
+coordinates rather than a text query, since a query like "Greater
+Victoria, BC" made Google drop a stray business pin; two zoom levels
+via script.js, since the map's on-screen box is still a different size
+on mobile vs. desktop even at the smaller cap) → FAQ (heading on the
+left, animated <details> accordion list on the right, via the
+`.split-layout` pattern — see below) → Contact (heading + call/email
+buttons on the left, the quote form on the right, same
+`.split-layout` pattern) → Footer (with quick-link nav matching the
+header's hamburger menu, now including FAQ).
 
 The FAQ was removed once, then re-added at the site owner's request
 with a different question set.
+
+### The `.split-layout` pattern (FAQ and Contact)
+
+Both sections were originally a single centered column (heading, then
+content, stacked) and were "too long" — a lot of vertical scrolling to
+see very little at once. `.split-layout` is a reusable two-column grid
+(`.split-heading` on the left, the actual content — `.faq-list` or
+`.quote-form` — on the right) that only activates at 700px+; below
+that it just stacks normally like everything else on mobile, since
+there's no width to spare for two columns on a phone. The heading
+column is `position: sticky` on desktop so it stays in view while the
+(usually taller) content column scrolls past it. Apply this same
+pattern to any future section that has a short heading paired with a
+much longer content block.
 
 No fake star ratings, testimonials, or review counts anywhere on the
 page — the Reviews section stays a plain placeholder until the Google

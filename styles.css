@@ -96,7 +96,7 @@ a {
 }
 
 .section {
-  padding: 3rem 0;
+  padding: 2.5rem 0;
 }
 
 .section:nth-of-type(even) {
@@ -347,6 +347,7 @@ h2 {
   color: var(--color-text);
   font-weight: 600;
   border-bottom: 1px solid var(--color-border);
+  text-align: center;
 }
 
 .site-nav a:last-child {
@@ -385,7 +386,7 @@ h2 {
    See the HTML comment for how to swap in a real photo later. */
 .hero {
   background: var(--color-forest);
-  padding: 3.5rem 0;
+  padding: 3rem 0;
   text-align: center;
 }
 
@@ -610,8 +611,23 @@ h2.on-dark {
   content: "\2212";
 }
 
+/* ---- Accordion open/close animation (shared by Services and FAQ) ----
+   The <details>/<summary> element's own open/close is instant with no
+   way to transition it in CSS, so script.js animates this inner
+   wrapper's max-height instead while <details> just tracks the
+   open/closed state underneath. */
+.accordion-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.service-groups .accordion-panel-inner {
+  padding-top: 0.9rem;
+}
+
 .service-groups ul {
-  margin: 0.9rem 0 0;
+  margin: 0;
   padding-left: 0;
   list-style: none;
 }
@@ -677,13 +693,12 @@ h2.on-dark {
 
 /* ---- FAQ ---- */
 .faq-list {
-  max-width: 760px;
-  margin: 1.5rem auto 0;
+  margin-top: 1.5rem;
 }
 
 .faq-list details {
   border-bottom: 1px solid var(--color-border);
-  padding: 1rem 0;
+  padding: 0.85rem 0;
 }
 
 .faq-list summary {
@@ -713,17 +728,80 @@ h2.on-dark {
   content: "\2212";
 }
 
+.faq-list .accordion-panel-inner {
+  padding-top: 0.6rem;
+}
+
 .faq-list p {
-  margin: 0.75rem 0 0;
+  margin: 0;
   color: var(--color-text-muted);
   max-width: 65ch;
 }
 
+/* ---- Split layout (FAQ and Contact) ----
+   A heading/intro block on the left and the actual content (the FAQ
+   list, or the quote form) on the right, instead of stacking heading
+   above content — shortens both sections a lot on wider screens.
+   Stays a single stacked column on mobile, where there's no width to
+   spare for two columns. */
+.split-heading .eyebrow,
+.split-heading h2 {
+  margin: 0 0 0.5rem;
+}
+
+.split-heading-sub {
+  margin-bottom: 0;
+}
+
+@media (min-width: 700px) {
+  .split-layout {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 3rem;
+    align-items: start;
+    margin-top: 2rem;
+  }
+
+  .split-heading {
+    position: sticky;
+    top: 6rem;
+  }
+
+  .split-heading .eyebrow,
+  .split-heading h2,
+  .split-heading-sub {
+    text-align: left;
+  }
+
+  .split-heading-sub {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: none;
+  }
+
+  .split-layout .faq-list,
+  .split-layout .quote-form {
+    margin-top: 0;
+    max-width: none;
+  }
+
+  .split-layout .contact-actions {
+    justify-content: flex-start;
+  }
+
+  .split-layout .contact-note {
+    text-align: left;
+  }
+}
+
 /* ---- Service area map + fallback link ----
    aspect-ratio keeps the map a consistent shape at any width, so the
-   page layout doesn't jump around while the map tile loads. */
+   page layout doesn't jump around while the map tile loads. Capped at
+   600px wide and centered — a full-width map looked oversized, and
+   this smaller box still fits the region the map needs to show. */
 .map-embed {
-  margin-top: 1.5rem;
+  margin: 1.5rem auto 0;
+  max-width: 600px;
   aspect-ratio: 4 / 3;
   border-radius: var(--radius);
   overflow: hidden;
@@ -740,17 +818,6 @@ h2.on-dark {
   margin-top: 0.5rem;
   font-size: 0.9rem;
   text-align: center;
-}
-
-@media (min-width: 700px) {
-  .map-embed {
-    /* A near-square shape (not the very wide 16:6 this used to be) —
-       the region this map needs to show (Langford to Discovery
-       Island, Beacon Hill to Beckwith Park) is almost as tall as it
-       is wide, so a short wide letterbox was cropping off the north
-       and south ends. */
-    aspect-ratio: 5 / 4;
-  }
 }
 
 /* ---- Contact ----
@@ -978,7 +1045,7 @@ h2.on-dark {
   }
 
   .hero {
-    padding: 5rem 0;
+    padding: 4rem 0;
   }
 
   .hero h1 {
@@ -1059,7 +1126,4 @@ h2.on-dark {
     padding: 0.5rem 1rem;
   }
 
-  .site-nav a {
-    text-align: right;
-  }
 }
