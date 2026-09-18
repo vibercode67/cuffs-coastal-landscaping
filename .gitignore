@@ -1,0 +1,6 @@
+# Original photos are large and shouldn't bloat the git repo — only the
+# compressed .webp files in /images are needed to run the site.
+photos/*
+!photos/.gitkeep
+
+.DS_Store

@@ -8,8 +8,10 @@ Explanations should be kept simple as changes are made.
 
 - Name: Cuff's Coastal Landscaping
 - Phone: +1 604 845 8999 (tap-to-call)
-- Email: not provided yet — use [EMAIL] placeholder
-- Service areas: Victoria, Saanich
+- Email: cufflandscaping@gmail.com
+- Service areas: Greater Victoria area, including Victoria and Saanich
+- Google Business Profile: not created yet — use [GOOGLE_BUSINESS_URL]
+  placeholder for the "See our reviews on Google" link until it exists
 - Hours: available all the time, call to inquire
 - In business 3+ years, client base of 50+
 - Quote process: free on-site quote, reply within 24 hours
@@ -20,12 +22,13 @@ Explanations should be kept simple as changes are made.
   compressed/resized copies go in `./images`
 
 ### Services (core)
-Lawn mowing and edging; spring and fall cleanups; leaf removal; hedge and
-shrub trimming; weeding; mulching and bark mulch; garden bed installation
-and maintenance; planting (flowers, shrubs, small trees); lawn aeration;
-overseeding; dethatching; sod installation (small yards); fertilizing;
-power washing (patios, driveways); gutter cleaning (if he does it); yard
-waste hauling; seasonal planters and containers; moss control.
+Regular lawn and garden maintenance; lawn mowing and edging; spring and
+fall cleanups; leaf removal; hedge and shrub trimming; pruning; weeding;
+mulching and bark mulch; garden bed installation and maintenance;
+planting (flowers, shrubs, small trees); lawn aeration; overseeding;
+dethatching; sod installation (small yards); fertilizing; power washing
+(patios, driveways); gutter cleaning (if he does it); yard waste hauling;
+seasonal planters and containers; moss control.
 
 ### Services (additional)
 Paver patios; fencing repair; snow removal; holiday lighting installation.

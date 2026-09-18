@@ -1,0 +1,464 @@
+/* ==========================================================================
+   Cuff's Coastal Landscaping — styles
+
+   This file is "mobile first": every rule you see by default is written
+   for a small phone screen. The @media (min-width: ...) blocks near the
+   bottom ADD extra layout for wider screens (tablets, laptops). This is
+   the opposite of designing for desktop and then squishing things down
+   for mobile — since most visitors will be on phones, the phone layout
+   is the default, not an afterthought.
+   ========================================================================== */
+
+/* ---- Design tokens ----
+   CSS custom properties (variables) defined once here, used everywhere
+   below via var(--name). Change a color in one place, it updates the
+   whole site. */
+:root {
+  --color-primary: #2f5233;       /* deep forest green — buttons, headings */
+  --color-primary-dark: #223d26;  /* hover/active state for primary green */
+  --color-accent: #6b8f47;        /* sage green — secondary accents */
+  --color-bg: #fbfaf6;            /* warm off-white page background */
+  --color-bg-alt: #f0ede4;        /* slightly darker section background */
+  --color-text: #24291f;          /* near-black body text */
+  --color-text-muted: #55604c;    /* softer text for sub-copy */
+  --color-border: #d8d3c4;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+
+  --container-width: 1100px;
+  --radius: 8px;
+}
+
+/* ---- Reset / base ---- */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  /* smooth-scroll so clicking a nav link (e.g. #services) glides down
+     the page instead of jumping instantly */
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  line-height: 1.2;
+  margin-top: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--color-primary);
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.section {
+  padding: 2.5rem 0;
+}
+
+.section:nth-of-type(even) {
+  background: var(--color-bg-alt);
+}
+
+/* Screen-reader-only text (visible to assistive tech, hidden visually).
+   Used for the hamburger button's label. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* "Skip to main content" link — hidden until a keyboard user tabs to it,
+   then it's the very first focusable thing on the page. Helps people
+   using a keyboard or screen reader skip past the header/nav. */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 0.75rem 1rem;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.85rem 1.5rem;
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: var(--color-primary-dark);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* ---- Header / nav ---- */
+.site-header {
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.header-inner {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.nav-toggle {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-text);
+  position: relative;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.hamburger::before {
+  top: -7px;
+}
+
+.hamburger::after {
+  top: 7px;
+}
+
+/* Nav links: hidden by default on small screens, shown as a dropdown
+   panel when the hamburger button is toggled (see script.js) */
+.primary-nav {
+  display: none;
+  flex-direction: column;
+  gap: 0.25rem;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  padding: 0.5rem 1.25rem 1rem;
+}
+
+.primary-nav.is-open {
+  display: flex;
+}
+
+.primary-nav a {
+  padding: 0.6rem 0;
+  text-decoration: none;
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.primary-nav a:last-child {
+  border-bottom: none;
+}
+
+.nav-call {
+  font-weight: 700;
+  color: var(--color-primary) !important;
+}
+
+/* ---- Hero ---- */
+.hero {
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 1.9rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.hero-sub {
+  color: var(--color-text-muted);
+  max-width: 42ch;
+  margin: 0 auto 1.75rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: stretch;
+}
+
+/* ---- Services ---- */
+.service-groups {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.service-group h3 {
+  color: var(--color-primary);
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+}
+
+.service-group ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.service-group li {
+  margin-bottom: 0.35rem;
+}
+
+/* ---- Gallery ---- */
+.section-note {
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.gallery-placeholder {
+  aspect-ratio: 4 / 3;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--color-bg-alt),
+    var(--color-bg-alt) 10px,
+    #e7e2d3 10px,
+    #e7e2d3 20px
+  );
+  border-radius: var(--radius);
+  border: 1px dashed var(--color-border);
+}
+
+.gallery-photo {
+  border-radius: var(--radius);
+  width: 100%;
+  height: auto;
+}
+
+/* ---- Service area map + reviews link ----
+   aspect-ratio keeps the map a consistent shape at any width, so the
+   page layout doesn't jump around while the map tile loads. */
+.map-embed {
+  margin-top: 1.5rem;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.map-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.map-fallback-link {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.reviews-link {
+  margin-top: 1.25rem;
+}
+
+@media (min-width: 700px) {
+  .map-embed {
+    aspect-ratio: 16 / 6;
+  }
+}
+
+/* ---- About ---- */
+.about p {
+  max-width: 65ch;
+}
+
+/* ---- Contact ---- */
+.contact-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+}
+
+.contact-note {
+  color: var(--color-text-muted);
+}
+
+/* ---- Footer ---- */
+.site-footer {
+  background: var(--color-primary);
+  color: #fff;
+  text-align: center;
+  padding: 2rem 0 5.5rem; /* extra bottom padding so the sticky mobile
+                              call bar never covers footer text */
+}
+
+.site-footer a {
+  color: #fff;
+}
+
+.footer-brand {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.copyright {
+  color: #cfe0d1;
+  font-size: 0.85rem;
+}
+
+/* ---- Sticky mobile "Call Now" bar ----
+   Fixed to the bottom of the screen on phones, since a phone visitor's
+   thumb is usually near the bottom edge. Hidden on wider screens where
+   the header's call link is already easy to reach. */
+.mobile-call-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--color-primary);
+  color: #fff;
+  text-align: center;
+  padding: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  z-index: 60;
+}
+
+/* ==========================================================================
+   Wider screens (tablets and up)
+   ========================================================================== */
+@media (min-width: 700px) {
+  .nav-toggle {
+    display: none;
+  }
+
+  .primary-nav {
+    display: flex;
+    flex-direction: row;
+    position: static;
+    background: none;
+    border: none;
+    padding: 0;
+    gap: 1.5rem;
+  }
+
+  .primary-nav a {
+    border-bottom: none;
+    padding: 0;
+  }
+
+  .hero h1 {
+    font-size: 2.6rem;
+  }
+
+  .hero-actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .hero-actions .btn {
+    flex: 0 0 auto;
+  }
+
+  .service-groups {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .contact-actions {
+    flex-direction: row;
+  }
+
+  .mobile-call-bar {
+    display: none;
+  }
+
+  .site-footer {
+    padding: 2.5rem 0;
+  }
+}
+
+@media (min-width: 960px) {
+  .service-groups {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
