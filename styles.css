@@ -7,6 +7,13 @@
    the opposite of designing for desktop and then squishing things down
    for mobile — since most visitors will be on phones, the phone layout
    is the default, not an afterthought.
+
+   Design language: a serif font for big headings (DM Serif Display), a
+   clean sans-serif for body text (Manrope), and a tracked-out monospace
+   font for small labels (Space Mono) — plus a warm cream/forest-green/
+   terracotta palette. This was modeled after a reference site the site
+   owner liked, using only the fonts/colors/layout patterns — none of
+   its made-up facts, stock photos, or fake reviews.
    ========================================================================== */
 
 /* ---- Design tokens ----
@@ -14,20 +21,24 @@
    below via var(--name). Change a color in one place, it updates the
    whole site. */
 :root {
-  --color-primary: #2f5233;       /* deep forest green — buttons, headings */
-  --color-primary-dark: #223d26;  /* hover/active state for primary green */
-  --color-accent: #6b8f47;        /* sage green — secondary accents */
-  --color-bg: #fbfaf6;            /* warm off-white page background */
-  --color-bg-alt: #f0ede4;        /* slightly darker section background */
-  --color-text: #24291f;          /* near-black body text */
-  --color-text-muted: #55604c;    /* softer text for sub-copy */
-  --color-border: #d8d3c4;
+  --color-cream: #f7f5f0;         /* main light background ("bone") */
+  --color-tan: #eae5d9;           /* card / alt-section background */
+  --color-forest: #1b3626;        /* dark green — dark sections, headings */
+  --color-forest-deep: #121c16;   /* near-black green — deepest contrast */
+  --color-terracotta: #c27d38;    /* accent — buttons, italic emphasis */
+  --color-terracotta-dark: #a66324; /* accent hover state */
+  --color-text: #1b3626;          /* body text on light backgrounds */
+  --color-text-muted: #526659;    /* softer text on light backgrounds */
+  --color-border: #ddd6c4;
 
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif;
+  --font-serif: "DM Serif Display", Georgia, serif;
+  --font-sans: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "Space Mono", ui-monospace, "SFMono-Regular", Menlo,
+    monospace;
 
   --container-width: 1100px;
-  --radius: 8px;
+  --radius: 10px;
 }
 
 /* ---- Reset / base ---- */
@@ -45,14 +56,21 @@ body {
   margin: 0;
   font-family: var(--font-sans);
   color: var(--color-text);
-  background: var(--color-bg);
-  line-height: 1.5;
+  background: var(--color-cream);
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3 {
-  line-height: 1.2;
+  font-family: var(--font-serif);
+  line-height: 1.15;
   margin-top: 0;
+  font-weight: 400;
+}
+
+h1 em, h2 em {
+  color: var(--color-terracotta);
+  font-style: italic;
 }
 
 img {
@@ -61,7 +79,7 @@ img {
 }
 
 a {
-  color: var(--color-primary);
+  color: var(--color-forest);
 }
 
 .container {
@@ -71,16 +89,41 @@ a {
 }
 
 .section {
-  padding: 2.5rem 0;
+  padding: 3rem 0;
 }
 
 .section:nth-of-type(even) {
-  background: var(--color-bg-alt);
+  background: var(--color-tan);
 }
 
 h2 {
   text-align: center;
   margin-bottom: 0.5rem;
+  font-size: 2rem;
+}
+
+.section-sub {
+  color: var(--color-text-muted);
+  text-align: center;
+  max-width: 55ch;
+  margin: 0.5rem auto 0;
+}
+
+/* ---- Eyebrow labels ----
+   The small tracked-out "01 // WHY CHOOSE US" line above each section
+   heading. Uses the monospace font for that editorial, typewriter feel. */
+.eyebrow {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  color: var(--color-terracotta);
+  text-align: center;
+  margin: 0 0 0.75rem;
+}
+
+.eyebrow-light {
+  color: #e3b98a;
 }
 
 /* "Skip to main content" link — hidden until a keyboard user tabs to it,
@@ -90,7 +133,7 @@ h2 {
   position: absolute;
   left: -999px;
   top: 0;
-  background: var(--color-primary);
+  background: var(--color-forest);
   color: #fff;
   padding: 0.75rem 1rem;
   z-index: 100;
@@ -101,41 +144,66 @@ h2 {
   top: 0.5rem;
 }
 
-/* ---- Buttons ---- */
+/* ---- Buttons & pills ----
+   Two shapes: .btn (solid, slightly rounded corners) for the main
+   calls to action, and .pill (fully rounded, often outlined) for
+   secondary actions — matching the reference site's button style. */
 .btn {
   display: inline-block;
   text-decoration: none;
-  font-weight: 600;
-  padding: 0.85rem 1.5rem;
-  border-radius: var(--radius);
+  font-weight: 700;
+  padding: 0.9rem 1.75rem;
+  border-radius: 999px;
   text-align: center;
+  font-family: var(--font-sans);
 }
 
 .btn-sm {
-  padding: 0.55rem 1rem;
+  padding: 0.55rem 1.1rem;
   font-size: 0.9rem;
 }
 
 .btn-primary {
-  background: var(--color-primary);
+  background: var(--color-terracotta);
   color: #fff;
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
-  background: var(--color-primary-dark);
+  background: var(--color-terracotta-dark);
 }
 
-.btn-secondary {
+.pill {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
+  text-align: center;
+  font-family: var(--font-sans);
+}
+
+.pill-outline {
   background: transparent;
-  color: var(--color-primary);
-  border: 2px solid var(--color-primary);
+  color: var(--color-forest);
+  border: 2px solid var(--color-forest);
 }
 
-.btn-secondary:hover,
-.btn-secondary:focus {
-  background: var(--color-primary);
+.pill-outline:hover,
+.pill-outline:focus {
+  background: var(--color-forest);
   color: #fff;
+}
+
+.pill-outline-light {
+  background: transparent;
+  color: var(--color-cream);
+  border: 2px solid rgba(247, 245, 240, 0.5);
+}
+
+.pill-outline-light:hover,
+.pill-outline-light:focus {
+  background: rgba(247, 245, 240, 0.15);
 }
 
 /* ---- Header ----
@@ -143,7 +211,7 @@ h2 {
    button on the right. No dropdown menu — see the footer for in-page
    links. */
 .site-header {
-  background: var(--color-bg);
+  background: var(--color-cream);
   border-bottom: 1px solid var(--color-border);
   position: sticky;
   top: 0;
@@ -153,7 +221,7 @@ h2 {
 .header-inner {
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0.85rem 1.25rem;
+  padding: 0.75rem 1.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -161,20 +229,58 @@ h2 {
 }
 
 .brand {
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
   text-decoration: none;
+  min-width: 0;
+}
+
+.brand-mark {
+  flex-shrink: 0;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 8px;
+  background: var(--color-tan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.brand-text {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: var(--color-forest);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
+.brand-tagline {
+  display: none; /* shown again on wider screens below, once there's
+                     room next to the brand name without truncating */
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-terracotta);
+  white-space: nowrap;
+}
+
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.6rem;
   flex-shrink: 0;
+}
+
+.header-phone {
+  display: none; /* shown again on wider screens below — on a phone,
+                     the sticky "Call Now" bar at the bottom already
+                     covers this */
+  font-size: 0.85rem;
+  padding: 0.55rem 1.1rem;
 }
 
 .btn-label-full {
@@ -195,30 +301,25 @@ h2 {
   }
 }
 
-.header-phone {
-  display: none; /* shown again on wider screens below — on a phone,
-                     the sticky "Call Now" bar at the bottom already
-                     covers this */
-  font-weight: 600;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-/* ---- Hero ---- */
+/* ---- Hero ----
+   Full-bleed dark forest-green band instead of a placeholder photo —
+   reads as an intentional design choice rather than "missing image."
+   See the HTML comment for how to swap in a real photo later. */
 .hero {
-  padding: 2.5rem 0 3rem;
+  background: var(--color-forest);
+  padding: 3.5rem 0;
   text-align: center;
 }
 
 .hero h1 {
-  font-size: 1.9rem;
-  color: var(--color-primary);
+  font-size: 2rem;
+  color: var(--color-cream);
   margin-bottom: 1rem;
 }
 
 .hero-sub {
-  color: var(--color-text-muted);
-  max-width: 42ch;
+  color: rgba(247, 245, 240, 0.75);
+  max-width: 46ch;
   margin: 0 auto 1.75rem;
 }
 
@@ -227,46 +328,28 @@ h2 {
   flex-direction: column;
   gap: 0.75rem;
   align-items: stretch;
+  margin-bottom: 2rem;
 }
 
-.hero-trust {
-  margin-top: 1.25rem;
-  color: var(--color-text-muted);
-  font-size: 0.9rem;
-}
-
-.hero-trust .dot {
-  margin: 0 0.5rem;
-}
-
-/* Hero photo placeholder — swap for a real <img> once a good "after"
-   photo exists (see the HTML comment above it). Uses the same
-   dashed-border / striped look as the gallery placeholders further
-   down, so it's obviously a placeholder rather than a design choice. */
-.hero-image {
-  margin: 2rem auto 0;
-  max-width: var(--container-width);
-  aspect-ratio: 4 / 3;
-  border-radius: var(--radius);
-  border: 1px dashed var(--color-border);
-  background: repeating-linear-gradient(
-    45deg,
-    var(--color-bg-alt),
-    var(--color-bg-alt) 10px,
-    #e7e2d3 10px,
-    #e7e2d3 20px
-  );
+.trust-badges {
+  list-style: none;
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
+  gap: 0.6rem;
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
-.hero-image span {
-  color: var(--color-text-muted);
-  font-style: italic;
-  background: var(--color-bg);
-  padding: 0.4rem 0.9rem;
+.trust-badges li {
+  border: 1px solid rgba(247, 245, 240, 0.3);
   border-radius: 999px;
+  padding: 0.5rem 1rem;
+  color: rgba(247, 245, 240, 0.85);
 }
 
 /* ---- Why Choose Us ---- */
@@ -277,27 +360,41 @@ h2 {
 }
 
 .why-card {
-  background: var(--color-bg);
+  background: var(--color-cream);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
-  padding: 1.5rem;
-  text-align: center;
+  padding: 1.75rem 1.5rem;
+  position: relative;
 }
 
-.why-icon {
-  font-size: 1.75rem;
+.why-number {
+  font-family: var(--font-mono);
+  color: var(--color-terracotta);
+  font-size: 0.9rem;
   margin-bottom: 0.75rem;
 }
 
 .why-card h3 {
-  color: var(--color-primary);
-  font-size: 1.05rem;
+  color: var(--color-forest);
+  font-size: 1.2rem;
   margin-bottom: 0.5rem;
 }
 
 .why-card p {
   color: var(--color-text-muted);
-  margin: 0;
+  margin: 0 0 1rem;
+}
+
+.tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--color-tan);
+  color: var(--color-forest);
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
 }
 
 /* ---- Reviews ----
@@ -305,7 +402,7 @@ h2 {
    index.html. This shows a placeholder until real Google reviews
    exist. */
 .reviews-card {
-  background: var(--color-bg);
+  background: var(--color-cream);
   border: 1px dashed var(--color-border);
   border-radius: var(--radius);
   padding: 2rem 1.5rem;
@@ -320,12 +417,6 @@ h2 {
 }
 
 /* ---- Gallery ---- */
-.section-note {
-  color: var(--color-text-muted);
-  font-style: italic;
-  text-align: center;
-}
-
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -337,10 +428,10 @@ h2 {
   aspect-ratio: 4 / 3;
   background: repeating-linear-gradient(
     45deg,
-    var(--color-bg-alt),
-    var(--color-bg-alt) 10px,
-    #e7e2d3 10px,
-    #e7e2d3 20px
+    var(--color-tan),
+    var(--color-tan) 10px,
+    #e0d9c6 10px,
+    #e0d9c6 20px
   );
   border-radius: var(--radius);
   border: 1px dashed var(--color-border);
@@ -353,13 +444,21 @@ h2 {
 }
 
 /* ---- Services ----
-   Deliberately de-emphasized: collapsed into <details> accordions (a
-   native HTML element, no JavaScript needed) instead of one long wall
-   of bullet points, so it doesn't dominate the page. */
+   Dark section (matches the reference site's treatment), with the
+   full list still collapsed into <details> accordions — de-emphasized
+   on purpose, not the page's main focus. */
+.services-dark {
+  background: var(--color-forest);
+}
+
+h2.on-dark {
+  color: var(--color-cream);
+}
+
 .services-intro {
-  color: var(--color-text-muted);
+  color: rgba(247, 245, 240, 0.7);
   max-width: 60ch;
-  margin: 0 auto 1.5rem;
+  margin: 0.5rem auto 1.5rem;
   text-align: center;
 }
 
@@ -369,8 +468,8 @@ h2 {
 }
 
 .service-groups details {
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
+  background: rgba(247, 245, 240, 0.05);
+  border: 1px solid rgba(247, 245, 240, 0.15);
   border-radius: var(--radius);
   padding: 0.9rem 1.1rem;
   margin-bottom: 0.75rem;
@@ -379,11 +478,19 @@ h2 {
 .service-groups summary {
   cursor: pointer;
   font-weight: 600;
-  color: var(--color-primary);
+  color: var(--color-cream);
   list-style: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 0.75rem;
+}
+
+.service-index {
+  font-family: var(--font-mono);
+  color: var(--color-terracotta);
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
 }
 
 .service-groups summary::-webkit-details-marker {
@@ -394,6 +501,8 @@ h2 {
   content: "+";
   font-weight: 700;
   font-size: 1.2rem;
+  color: var(--color-terracotta);
+  margin-left: auto;
 }
 
 .service-groups details[open] summary::after {
@@ -401,12 +510,23 @@ h2 {
 }
 
 .service-groups ul {
-  margin: 0.75rem 0 0;
-  padding-left: 1.1rem;
+  margin: 0.9rem 0 0;
+  padding-left: 0;
+  list-style: none;
 }
 
 .service-groups li {
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.5rem;
+  padding-left: 1.3rem;
+  position: relative;
+  color: rgba(247, 245, 240, 0.8);
+}
+
+.service-groups li::before {
+  content: "\2014";
+  position: absolute;
+  left: 0;
+  color: var(--color-terracotta);
 }
 
 /* ---- About ----
@@ -416,13 +536,14 @@ h2 {
 .about-grid {
   display: grid;
   gap: 2rem;
-  margin-top: 1.5rem;
+  margin-top: 2rem;
 }
 
 .about-text p {
   max-width: 65ch;
   margin-left: auto;
   margin-right: auto;
+  color: var(--color-text-muted);
 }
 
 .about-stats {
@@ -432,22 +553,25 @@ h2 {
 }
 
 .stat {
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
+  background: var(--color-tan);
   border-radius: var(--radius);
-  padding: 1rem;
+  padding: 1.1rem;
   text-align: center;
 }
 
 .stat strong {
   display: block;
-  font-size: 1.4rem;
-  color: var(--color-primary);
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: var(--color-terracotta);
 }
 
 .stat span {
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-forest);
 }
 
 /* ---- FAQ ---- */
@@ -463,7 +587,8 @@ h2 {
 
 .faq-list summary {
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
+  color: var(--color-forest);
   list-style: none;
   display: flex;
   justify-content: space-between;
@@ -479,6 +604,7 @@ h2 {
   content: "+";
   font-weight: 700;
   font-size: 1.2rem;
+  color: var(--color-terracotta);
   flex-shrink: 0;
 }
 
@@ -522,28 +648,37 @@ h2 {
 }
 
 /* ---- Contact ---- */
+.contact-dark {
+  background: var(--color-forest);
+}
+
+.on-dark-sub {
+  color: rgba(247, 245, 240, 0.75) !important;
+}
+
 .contact-actions {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  margin: 1.25rem 0;
+  margin: 1.5rem 0;
 }
 
 .contact-note {
-  color: var(--color-text-muted);
+  color: rgba(247, 245, 240, 0.65);
   text-align: center;
+  font-size: 0.9rem;
 }
 
 /* ---- Footer ---- */
 .site-footer {
-  background: var(--color-primary);
-  color: #fff;
+  background: var(--color-forest-deep);
+  color: var(--color-cream);
   padding: 2.5rem 0 5.5rem; /* extra bottom padding so the sticky mobile
                                 call bar never covers footer text */
 }
 
 .site-footer a {
-  color: #fff;
+  color: var(--color-cream);
 }
 
 .footer-grid {
@@ -554,21 +689,27 @@ h2 {
 }
 
 .footer-brand {
-  font-weight: 700;
-  font-size: 1.1rem;
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
 }
 
 .footer-links {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .copyright {
-  color: #cfe0d1;
-  font-size: 0.85rem;
+  color: rgba(247, 245, 240, 0.5);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
   text-align: center;
   margin-top: 1.5rem;
+  letter-spacing: 0.04em;
 }
 
 /* ---- Sticky mobile "Call Now" bar ----
@@ -580,7 +721,7 @@ h2 {
   left: 0;
   right: 0;
   bottom: 0;
-  background: var(--color-primary);
+  background: var(--color-terracotta);
   color: #fff;
   text-align: center;
   padding: 0.9rem;
@@ -594,19 +735,32 @@ h2 {
    ========================================================================== */
 @media (min-width: 700px) {
   .header-phone {
-    display: inline;
+    display: inline-block;
   }
 
-  .brand {
-    font-size: 1.1rem;
+  .brand-text {
+    font-size: 1.15rem;
+  }
+
+  .brand-tagline {
+    display: block;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+  }
+
+  .hero {
+    padding: 5rem 0;
   }
 
   .hero h1 {
-    font-size: 2.75rem;
+    font-size: 3.25rem;
   }
 
   .hero-sub {
-    max-width: 52ch;
+    max-width: 55ch;
+    font-size: 1.1rem;
   }
 
   .hero-actions {
@@ -614,12 +768,9 @@ h2 {
     justify-content: center;
   }
 
-  .hero-actions .btn {
+  .hero-actions .btn,
+  .hero-actions .pill {
     flex: 0 0 auto;
-  }
-
-  .hero-image {
-    aspect-ratio: 21 / 9;
   }
 
   .why-grid {

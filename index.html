@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cuff's Coastal Landscaping | Greater Victoria Lawn Care</title>
   <meta name="description" content="Cuff's Coastal Landscaping offers lawn care, cleanups, planting, and landscaping services across Greater Victoria, including Victoria and Saanich, BC. Free on-site quotes, reply within 24 hours.">
+
+  <!--
+    Three Google Fonts, chosen after looking at a reference site the
+    site owner liked: a serif for big headlines (DM Serif Display), a
+    clean sans-serif for body text (Manrope), and a monospace font for
+    small tracked-out labels like "GREATER VICTORIA, BC" (Space Mono).
+    preconnect just tells the browser to start the connection to
+    Google's font servers early, so the fonts arrive a little faster.
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css">
 
   <!--
@@ -47,9 +60,15 @@
   -->
   <header class="site-header">
     <div class="header-inner">
-      <a href="#top" class="brand">Cuff's Coastal Landscaping</a>
+      <a href="#top" class="brand">
+        <span class="brand-mark" aria-hidden="true">&#127794;</span>
+        <span class="brand-text">
+          Cuff's Coastal
+          <span class="brand-tagline">Landscaping &middot; Greater Victoria</span>
+        </span>
+      </a>
       <div class="header-actions">
-        <a class="header-phone" href="tel:+16048458999">(604) 845-8999</a>
+        <a class="pill pill-outline header-phone" href="tel:+16048458999">(604) 845-8999</a>
         <a class="btn btn-primary btn-sm" href="#contact">
           <span class="btn-label-short">Free Quote</span>
           <span class="btn-label-full">Get a Free Quote</span>
@@ -60,66 +79,61 @@
 
   <main id="main">
 
+    <!--
+      This hero uses bold color and type instead of a placeholder photo
+      box, so it looks like a deliberate design choice rather than
+      "unfinished." Once a great real photo exists, this can become a
+      photo background with a dark overlay instead — ask and I'll wire
+      it up.
+    -->
     <section id="top" class="hero">
       <div class="container">
-        <h1>Transform Your Outdoor Space Into Your Favourite Place</h1>
+        <p class="eyebrow eyebrow-light">Greater Victoria &amp; Saanich, BC</p>
+        <h1>Transform Your Outdoor Space Into Your <em>Favourite</em> Place</h1>
         <p class="hero-sub">
           Lawn care, cleanups, planting, and landscaping for homes across
-          Greater Victoria — from a local, fully insured crew.
+          Greater Victoria &mdash; from a local, fully insured crew.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="tel:+16048458999">
-            Call (604) 845-8999
-          </a>
-          <a class="btn btn-secondary" href="#contact">
+          <a class="btn btn-primary" href="#contact">
             Get a Free Quote
           </a>
+          <a class="pill pill-outline-light" href="tel:+16048458999">
+            Call (604) 845-8999
+          </a>
         </div>
-        <p class="hero-trust">
-          Trusted by 50+ happy clients<span class="dot">&middot;</span>Fully insured<span class="dot">&middot;</span>Free on-site quotes
-        </p>
-
-        <!--
-          Hero photo placeholder. Once a great "after" shot exists,
-          replace this whole <div class="hero-image">...</div> block
-          with, e.g.:
-
-          <img
-            src="images/hero.webp"
-            width="1600"
-            height="900"
-            alt="Describe the real photo, e.g. Freshly landscaped
-                 backyard patio and garden beds in Victoria, BC"
-            class="hero-image-photo"
-          >
-
-          (No loading="lazy" here — this image is above the fold, so
-          it should load immediately, not lazily.)
-        -->
-        <div class="hero-image" aria-hidden="true">
-          <span>Photo coming soon</span>
-        </div>
+        <ul class="trust-badges">
+          <li>50+ Happy Clients</li>
+          <li>Fully Insured</li>
+          <li>Free On-Site Quotes</li>
+        </ul>
       </div>
     </section>
 
     <section id="why-choose-us" class="section why-choose-us">
       <div class="container">
-        <h2>Why Choose Cuff's Coastal Landscaping</h2>
+        <p class="eyebrow">01 &frasl;&frasl; Why Choose Us</p>
+        <h2>Local roots, <em>personal</em> care.</h2>
+        <p class="section-sub">A small crew on purpose &mdash; when you hire Cuff's Coastal, the same people show up every time.</p>
+
         <div class="why-grid">
           <div class="why-card">
-            <div class="why-icon" aria-hidden="true">&#9201;</div>
+            <div class="why-number">01</div>
             <h3>Reliable &amp; Timely Service</h3>
             <p>We show up when we say we will, and every quote request gets a reply within 24 hours.</p>
+            <span class="tag">On Time, Every Time</span>
           </div>
           <div class="why-card">
-            <div class="why-icon" aria-hidden="true">&#127919;</div>
+            <div class="why-number">02</div>
             <h3>Tailored Plans for Every Client</h3>
             <p>Every yard is different. We build a plan around your space and what you actually need, not a one-size-fits-all package.</p>
+            <span class="tag">Custom Tailored</span>
           </div>
           <div class="why-card">
-            <div class="why-icon" aria-hidden="true">&#128737;&#65039;</div>
+            <div class="why-number">03</div>
             <h3>Commitment to Quality &amp; Safety</h3>
             <p>Fully insured, careful on every property, and focused on doing the job right the first time.</p>
+            <span class="tag">Insured &amp; Careful</span>
           </div>
         </div>
       </div>
@@ -127,7 +141,8 @@
 
     <section id="reviews" class="section reviews">
       <div class="container">
-        <h2>What Our Clients Say</h2>
+        <p class="eyebrow">02 &frasl;&frasl; Reviews</p>
+        <h2>What our <em>clients</em> say.</h2>
         <div class="reviews-card">
           <p>
             We're setting up our Google Business Profile now &mdash;
@@ -138,7 +153,7 @@
             Business Profile is created and verified, replace this
             href with the real profile link.
           -->
-          <a class="btn btn-secondary" href="[GOOGLE_BUSINESS_URL]" target="_blank" rel="noopener">
+          <a class="pill pill-outline" href="[GOOGLE_BUSINESS_URL]" target="_blank" rel="noopener">
             Read Reviews on Google
           </a>
         </div>
@@ -147,8 +162,9 @@
 
     <section id="gallery" class="section gallery">
       <div class="container">
-        <h2>Recent Projects</h2>
-        <p class="section-note">Photos coming soon.</p>
+        <p class="eyebrow">03 &frasl;&frasl; Gallery</p>
+        <h2>Recent <em>projects</em>.</h2>
+        <p class="section-sub">Photos coming soon.</p>
 
         <div class="gallery-grid">
           <div class="gallery-placeholder" aria-hidden="true"></div>
@@ -185,23 +201,23 @@
     </section>
 
     <!--
-      Services: deliberately NOT the centerpiece of the page anymore.
-      It's collapsed into <details> accordions (a native HTML element —
-      no JavaScript needed) so visitors can expand a category if they
+      Services: deliberately NOT the centerpiece of the page. It's
+      collapsed into <details> accordions (a native HTML element — no
+      JavaScript needed) so visitors can expand a category if they
       want the full list, without it taking over the page.
     -->
-    <section id="services" class="section services">
+    <section id="services" class="section services services-dark">
       <div class="container">
-        <h2>What We Do</h2>
+        <p class="eyebrow eyebrow-light">04 &frasl;&frasl; Services</p>
+        <h2 class="on-dark">Year-round care, <em>every</em> season covered.</h2>
         <p class="services-intro">
           From weekly lawn care to seasonal projects, we handle the
-          everyday and the big jobs. Tap a category below to see the
-          full list.
+          everyday and the big jobs. Tap a category to see the full list.
         </p>
 
         <div class="service-groups">
           <details>
-            <summary>Lawn &amp; Garden Care</summary>
+            <summary><span class="service-index">S.01</span> Lawn &amp; Garden Care</summary>
             <ul>
               <li>Regular lawn and garden maintenance</li>
               <li>Lawn mowing and edging</li>
@@ -215,7 +231,7 @@
           </details>
 
           <details>
-            <summary>Cleanup &amp; Maintenance</summary>
+            <summary><span class="service-index">S.02</span> Cleanup &amp; Maintenance</summary>
             <ul>
               <li>Spring and fall cleanups</li>
               <li>Leaf removal</li>
@@ -229,7 +245,7 @@
           </details>
 
           <details>
-            <summary>Planting &amp; Beds</summary>
+            <summary><span class="service-index">S.03</span> Planting &amp; Beds</summary>
             <ul>
               <li>Garden bed installation and maintenance</li>
               <li>Planting (flowers, shrubs, small trees)</li>
@@ -239,7 +255,7 @@
           </details>
 
           <details>
-            <summary>Additional Services</summary>
+            <summary><span class="service-index">S.04</span> Additional Services</summary>
             <ul>
               <li>Paver patios</li>
               <li>Fencing repair</li>
@@ -253,7 +269,8 @@
 
     <section id="about" class="section about">
       <div class="container">
-        <h2>About</h2>
+        <p class="eyebrow">05 &frasl;&frasl; About</p>
+        <h2>UVic alum, <em>local</em> owner.</h2>
         <div class="about-grid">
           <div class="about-text">
             <p>
@@ -293,7 +310,8 @@
 
     <section id="faq" class="section faq">
       <div class="container">
-        <h2>Frequently Asked Questions</h2>
+        <p class="eyebrow">06 &frasl;&frasl; FAQ</p>
+        <h2>Everything you <em>need</em> to know.</h2>
         <div class="faq-list">
           <details>
             <summary>Are you insured?</summary>
@@ -326,8 +344,9 @@
 
     <section id="areas" class="section areas">
       <div class="container">
-        <h2>Service Area</h2>
-        <p>We proudly serve the Greater Victoria area, including Victoria and Saanich, BC.</p>
+        <p class="eyebrow">07 &frasl;&frasl; Service Area</p>
+        <h2>Where we <em>work</em>.</h2>
+        <p class="section-sub">We proudly serve the Greater Victoria area, including Victoria and Saanich, BC.</p>
 
         <div class="map-embed">
           <iframe
@@ -347,10 +366,11 @@
       </div>
     </section>
 
-    <section id="contact" class="section contact">
+    <section id="contact" class="section contact contact-dark">
       <div class="container">
-        <h2>Get a Free Quote</h2>
-        <p>
+        <p class="eyebrow eyebrow-light">08 &frasl;&frasl; Get a Free Quote</p>
+        <h2 class="on-dark">Let's get <em>started</em>.</h2>
+        <p class="section-sub on-dark-sub">
           Call or email to set up a free on-site quote. We reply within
           24 hours.
         </p>
@@ -358,7 +378,7 @@
           <a class="btn btn-primary" href="tel:+16048458999">
             Call (604) 845-8999
           </a>
-          <a class="btn btn-secondary" href="mailto:cufflandscaping@gmail.com">
+          <a class="pill pill-outline-light" href="mailto:cufflandscaping@gmail.com">
             Email us
           </a>
         </div>

@@ -45,7 +45,8 @@ Paver patios; fencing repair; snow removal; holiday lighting installation.
    `[EMAIL]` and list every placeholder at the end of any work summary.
 2. **Static site only.** Plain HTML, CSS, and minimal vanilla JS. No
    frameworks, no build step, no npm dependencies. Must be hostable as-is
-   on GitHub Pages.
+   on GitHub Pages. (Google Fonts via a `<link>` tag are fine — that's
+   still just static HTML, no build step involved.)
 3. **Mobile first.** Most visitors will be on phones.
 4. **Tap-to-call required.** The phone number must be a `tel:` link. No
    contact form in v1 — use tap-to-call plus a `mailto:` link.
@@ -62,8 +63,30 @@ Paver patios; fencing repair; snow removal; holiday lighting installation.
 - LocalBusiness JSON-LD schema using only real details above; placeholders
   for anything missing.
 - Semantic HTML, readable contrast, no text baked into images.
-- Clean, simple design: restrained colour palette, one or two fonts max,
-  system fonts preferred.
+
+## Design system
+
+Modeled after a reference site the site owner liked (fonts/colors/layout
+patterns only — never its made-up facts, stock photos, fake reviews, or
+its contact form, which conflicts with rule 4 above).
+
+- **Fonts** (Google Fonts, loaded via `<link>` in `<head>`):
+  `DM Serif Display` for headings (with italic used for one accent word
+  per heading, e.g. "Your <em>Favourite</em> Place"), `Manrope` for body
+  text, `Space Mono` for small tracked-out uppercase labels (eyebrows,
+  tags, stat labels).
+- **Colors** (CSS variables in `styles.css`): cream `#f7f5f0` and tan
+  `#eae5d9` for light sections, forest green `#1b3626` and near-black
+  green `#121c16` for dark sections/footer, terracotta `#c27d38` as the
+  one accent color (buttons, italic emphasis, numbers).
+- **Components**: pill-shaped buttons (`border-radius: 999px`); a
+  repeating "eyebrow" pattern above each `<h2>` (e.g. "01 // WHY CHOOSE
+  US" in Space Mono); numbered cards (01/02/03) with a small mono tag;
+  alternating light/dark section backgrounds for rhythm.
+- The hero deliberately has no placeholder photo — it's a solid dark
+  forest-green band with bold type instead, so it reads as an
+  intentional choice rather than "missing image." Once a real hero
+  photo exists, it can become a photo background with a dark overlay.
 
 ## Site structure (single page)
 
