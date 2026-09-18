@@ -118,43 +118,74 @@
       </div>
     </section>
 
+    <!--
+      IMPORTANT — these 4 photos are stock images (properly licensed,
+      free for commercial use, from Unsplash), NOT actual photos of
+      Cuff's Coastal Landscaping's work. They're here as placeholders
+      to make the page feel more finished while real project photos
+      are gathered. The caption below says so honestly.
+
+      HOW TO REPLACE WITH REAL PHOTOS:
+      1. Put original photo files in the /photos folder.
+      2. Run ./scripts/compress-images.sh — it converts and resizes
+         them into /images as .webp files, and prints the width and
+         height of each one.
+      3. Swap an <img> below for the real one, e.g.:
+
+      <img
+        src="images/front-yard-cleanup.webp"
+        width="800"
+        height="600"
+        alt="Describe what's actually in the photo, e.g. Freshly
+             mowed front lawn with trimmed hedges in Saanich"
+        loading="lazy"
+        class="gallery-photo"
+      >
+
+      Use the real width/height the script prints, and write a real,
+      specific alt description — and once all 4 are swapped, delete
+      the "stock photos" line in the caption below.
+    -->
     <section id="gallery" class="section gallery">
       <div class="container">
         <p class="eyebrow">Gallery</p>
         <h2>Recent <em>projects</em>.</h2>
-        <p class="section-sub">Photos coming soon.</p>
+        <p class="section-sub">Sample work shown below (stock photos) while our own project photos are gathered.</p>
 
         <div class="gallery-grid">
-          <div class="gallery-placeholder" aria-hidden="true"></div>
-          <div class="gallery-placeholder" aria-hidden="true"></div>
-          <div class="gallery-placeholder" aria-hidden="true"></div>
-          <div class="gallery-placeholder" aria-hidden="true"></div>
-        </div>
-
-        <!--
-          HOW TO ADD REAL PHOTOS:
-          1. Put original photo files in the /photos folder.
-          2. Run ./scripts/compress-images.sh — it converts and resizes
-             them into /images as .webp files, and prints the width and
-             height of each one.
-          3. Replace a placeholder div above with a real img tag, e.g.:
-
           <img
-            src="images/front-yard-cleanup.webp"
-            width="800"
-            height="600"
-            alt="Describe what's actually in the photo, e.g. Freshly
-                 mowed front lawn with trimmed hedges in Saanich"
+            src="images/gallery-lawn-path.jpg"
+            width="1000"
+            height="666"
+            alt="Curved gravel path through a manicured lawn with trimmed shrubs"
             loading="lazy"
             class="gallery-photo"
           >
-
-          Use the real width/height the script prints (this prevents
-          the page from jumping around as images load). Write a real,
-          specific alt description for each photo — it's read aloud by
-          screen readers and used by search engines, so "IMG_1234" is
-          not a useful alt text.
-        -->
+          <img
+            src="images/gallery-flower-path.jpg"
+            width="1000"
+            height="666"
+            alt="Brick garden path lined with colourful flower beds and trimmed hedges"
+            loading="lazy"
+            class="gallery-photo"
+          >
+          <img
+            src="images/gallery-garden-edge.jpg"
+            width="667"
+            height="1000"
+            alt="Gravel path beside a garden bed with mixed perennial plantings"
+            loading="lazy"
+            class="gallery-photo"
+          >
+          <img
+            src="images/gallery-hedge-trim.jpg"
+            width="1000"
+            height="666"
+            alt="Close-up of a hedge trimmer shaping a rounded shrub"
+            loading="lazy"
+            class="gallery-photo"
+          >
+        </div>
       </div>
     </section>
 

@@ -22,6 +22,13 @@ Explanations should be kept simple as changes are made.
 - Fully insured
 - Photos: originals live in `./photos` (not yet provided as of project start);
   compressed/resized copies go in `./images`
+- Gallery currently shows 4 stock photos (`images/gallery-*.jpg`), NOT
+  real photos of this business's work — downloaded from Unsplash under
+  the free Unsplash License (free for commercial use, no attribution
+  required). The site owner explicitly approved using stock photos as
+  placeholders, on the condition that they get swapped for real project
+  photos eventually. The gallery caption says "stock photos" honestly;
+  update/remove that caption as each one is replaced with a real photo.
 
 ### Services (core)
 Regular lawn and garden maintenance; lawn mowing and edging; spring and
