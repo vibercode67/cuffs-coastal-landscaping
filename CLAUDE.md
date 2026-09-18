@@ -9,7 +9,8 @@ Explanations should be kept simple as changes are made.
 - Name: Cuff's Coastal Landscaping
 - Phone: +1 604 845 8999 (tap-to-call)
 - Email: cufflandscaping@gmail.com
-- Service areas: Greater Victoria area, including Victoria and Saanich
+- Service areas: Victoria, Saanich, Oak Bay, and Esquimalt, BC (all
+  confirmed by the site owner)
 - Google Business Profile: created, awaiting Google verification — use
   [GOOGLE_BUSINESS_URL] placeholder for the reviews link/button until
   the real profile link is provided
@@ -27,8 +28,21 @@ Explanations should be kept simple as changes are made.
   the free Unsplash License (free for commercial use, no attribution
   required). The site owner explicitly approved using stock photos as
   placeholders, on the condition that they get swapped for real project
-  photos eventually. The gallery caption says "stock photos" honestly;
-  update/remove that caption as each one is replaced with a real photo.
+  photos eventually. There is deliberately no visible "stock photo"
+  label anymore (removed at the site owner's request) — each photo has
+  a hover caption naming a service category (e.g. "Lawn Care", "Hedge
+  Trimming") instead. Replace each photo file and its caption/alt text
+  with the real thing as real project photos come in.
+- Whether homeowners need to be home for the on-site quote: unknown —
+  use [NEED_HOME_FOR_QUOTE] placeholder in the FAQ
+- Range of project sizes handled (small yards only? Also larger
+  properties?): unknown — use [PROJECT_SIZE_RANGE] placeholder in the FAQ
+- Contact form backend: the quote form on the page needs a Formspree
+  account (free tier) to actually deliver email, since GitHub Pages has
+  no server of its own. [FORMSPREE_ENDPOINT] in the form's `action`
+  attribute in index.html is a placeholder — the site owner needs to
+  create a free account at formspree.io themselves (Claude can't create
+  accounts) and provide the resulting form URL.
 
 ### Services (core)
 Regular lawn and garden maintenance; lawn mowing and edging; spring and
@@ -39,8 +53,10 @@ dethatching; sod installation (small yards); fertilizing; power washing
 (patios, driveways); gutter cleaning (if he does it); yard waste hauling;
 seasonal planters and containers; moss control.
 
-### Services (additional)
-Paver patios; fencing repair; snow removal; holiday lighting installation.
+### Services (winter & additional)
+Snow removal; holiday lighting installation; paver patios; fencing repair.
+(One combined category on the site — "Winter & Additional Services" —
+at the site owner's request, winter items listed first.)
 
 ## Hard rules for this project
 
@@ -53,8 +69,11 @@ Paver patios; fencing repair; snow removal; holiday lighting installation.
    on GitHub Pages. (Google Fonts via a `<link>` tag are fine — that's
    still just static HTML, no build step involved.)
 3. **Mobile first.** Most visitors will be on phones.
-4. **Tap-to-call required.** The phone number must be a `tel:` link. No
-   contact form in v1 — use tap-to-call plus a `mailto:` link.
+4. **Tap-to-call required.** The phone number must be a `tel:` link, and
+   it and a `mailto:` link must always be available. (Originally this
+   rule banned any contact form — the site owner explicitly reversed
+   that and asked for a quote form in addition to tap-to-call/email, so
+   there's now also a form in the Contact section, backed by Formspree.)
 5. **No autonomous git push, deployment, or global package installs.**
    Always ask the user first before running `git push`, deploying
    anything, or installing global packages.
@@ -97,23 +116,43 @@ its contact form, which conflicts with rule 4 above).
 ## Site structure (single page)
 
 Header (logo + full "Cuff's Coastal Landscaping" title, one line +
-phone + "Get a Free Quote" button + a hamburger menu button that opens
-a dropdown of section links) → Hero (headline, CTA buttons, trust
-badges) → Recent Projects (photo gallery — deliberately placed right
-after the hero, per the site owner's request) → Why Choose Us (3
-value-prop cards: reliable/timely, tailored plans, small dedicated
-crew) → Reviews (placeholder until Google reviews exist) → What We Do
+phone + "Get a Free Quote" button + a hamburger menu button, animated
+open/close, that opens a dropdown of section links — a compact
+right-anchored card on desktop, a full-width bar on mobile) → Hero
+(headline, CTA buttons, trust badges) → Recent Projects (photo
+gallery, placed right after the hero; each photo has a hover-reveal
+caption naming a service category) → Why Choose Us (3 value-prop
+cards: reliable/timely, tailored plans, small dedicated crew) →
+Reviews (placeholder until Google reviews exist) → What We Do
 (services, collapsed into <details> accordions — deliberately
-de-emphasized, not the main focus of the page; 5 categories: Lawn &
-Garden Care, Cleanup & Seasonal Maintenance, Planting & Beds,
-Additional Services, Winter Services) → About (text + stats grid) →
-Service Area (map, zoomed to show the wider region — Saanich, Langford,
-Colwood — not just downtown) → Contact → Footer (with quick-link nav
-matching the header's hamburger menu).
+de-emphasized, not the main focus of the page; 4 categories: Lawn &
+Garden Care, Cleanup & Seasonal Maintenance, Planting & Beds, Winter &
+Additional Services) → About (text + stats grid) → Service Area (map,
+centered on lat/lng coordinates rather than a text query — a query
+like "Greater Victoria, BC" made Google drop a stray business pin.
+Two zoom levels via script.js, since the map's on-screen box is a very
+different size on mobile vs. desktop) → FAQ (<details> accordions) →
+Contact (call/email buttons + a quote form) → Footer (with quick-link
+nav matching the header's hamburger menu, now including FAQ).
 
-There is no FAQ section — removed at the site owner's request in favor
-of just calling.
+The FAQ was removed once, then re-added at the site owner's request
+with a different question set.
 
 No fake star ratings, testimonials, or review counts anywhere on the
 page — the Reviews section stays a plain placeholder until the Google
 Business Profile actually has reviews to link to.
+
+## Known CSS gotcha (already fixed, but worth knowing)
+
+`.section:nth-of-type(even)` (used for alternating light/tan section
+backgrounds) has higher CSS specificity than a single class like
+`.contact-dark` or `.services-dark`, because a `:nth-of-type` pseudo-
+class counts the same as a class in specificity. A lone `.contact-dark
+{ background: ... }` rule can silently lose to the alternating-
+background rule if that section happens to land on an even position —
+which is exactly what happened once (white text became unreadable on
+an accidentally-light background). Both dark-section overrides are now
+written as `.section.contact-dark` / `.section.services-dark` (two
+classes combined) specifically to outrank the nth-of-type rule
+regardless of section order. Follow that same pattern for any new
+dark-background section added later.

@@ -40,7 +40,9 @@
     "areaServed": [
       { "@type": "Place", "name": "Greater Victoria" },
       { "@type": "City", "name": "Victoria" },
-      { "@type": "City", "name": "Saanich" }
+      { "@type": "City", "name": "Saanich" },
+      { "@type": "City", "name": "Oak Bay" },
+      { "@type": "City", "name": "Esquimalt" }
     ],
     "openingHours": "Mo-Su 00:00-23:59",
     "description": "Lawn care, cleanups, planting, and landscaping services serving Greater Victoria, including Victoria and Saanich, BC. Free on-site quotes.",
@@ -81,6 +83,7 @@
       <a href="#why-choose-us">Why Choose Us</a>
       <a href="#services">Services</a>
       <a href="#about">About</a>
+      <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -96,7 +99,7 @@
     -->
     <section id="top" class="hero">
       <div class="container">
-        <p class="eyebrow eyebrow-light">Greater Victoria &amp; Saanich, BC</p>
+        <p class="eyebrow eyebrow-light">Victoria, Saanich, Oak Bay &amp; Esquimalt</p>
         <h1>Transform Your Outdoor Space Into Your <em>Favourite</em> Place</h1>
         <p class="hero-sub">
           Lawn care, cleanups, planting, and landscaping for homes across
@@ -123,68 +126,69 @@
       free for commercial use, from Unsplash), NOT actual photos of
       Cuff's Coastal Landscaping's work. They're here as placeholders
       to make the page feel more finished while real project photos
-      are gathered. The caption below says so honestly.
+      are gathered. At the site owner's request there's no visible
+      "stock photo" label anymore — but please still swap these for
+      real photos as soon as they exist (see below).
 
       HOW TO REPLACE WITH REAL PHOTOS:
       1. Put original photo files in the /photos folder.
       2. Run ./scripts/compress-images.sh — it converts and resizes
          them into /images as .webp files, and prints the width and
          height of each one.
-      3. Swap an <img> below for the real one, e.g.:
-
-      <img
-        src="images/front-yard-cleanup.webp"
-        width="800"
-        height="600"
-        alt="Describe what's actually in the photo, e.g. Freshly
-             mowed front lawn with trimmed hedges in Saanich"
-        loading="lazy"
-        class="gallery-photo"
-      >
-
-      Use the real width/height the script prints, and write a real,
-      specific alt description — and once all 4 are swapped, delete
-      the "stock photos" line in the caption below.
+      3. Swap an <img src="..."> below for the real photo file, and
+         update its alt text and the .gallery-caption text next to it
+         to describe what's actually in the new photo.
     -->
     <section id="gallery" class="section gallery">
       <div class="container">
         <p class="eyebrow">Gallery</p>
         <h2>Recent <em>projects</em>.</h2>
-        <p class="section-sub">Sample work shown below (stock photos) while our own project photos are gathered.</p>
 
         <div class="gallery-grid">
-          <img
-            src="images/gallery-lawn-path.jpg"
-            width="1000"
-            height="666"
-            alt="Curved gravel path through a manicured lawn with trimmed shrubs"
-            loading="lazy"
-            class="gallery-photo"
-          >
-          <img
-            src="images/gallery-flower-path.jpg"
-            width="1000"
-            height="666"
-            alt="Brick garden path lined with colourful flower beds and trimmed hedges"
-            loading="lazy"
-            class="gallery-photo"
-          >
-          <img
-            src="images/gallery-garden-edge.jpg"
-            width="667"
-            height="1000"
-            alt="Gravel path beside a garden bed with mixed perennial plantings"
-            loading="lazy"
-            class="gallery-photo"
-          >
-          <img
-            src="images/gallery-hedge-trim.jpg"
-            width="1000"
-            height="666"
-            alt="Close-up of a hedge trimmer shaping a rounded shrub"
-            loading="lazy"
-            class="gallery-photo"
-          >
+          <div class="gallery-item">
+            <img
+              src="images/gallery-lawn-path.jpg"
+              width="1000"
+              height="666"
+              alt="Curved gravel path through a manicured lawn with trimmed shrubs"
+              loading="lazy"
+              class="gallery-photo"
+            >
+            <span class="gallery-caption">Lawn Care</span>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="images/gallery-flower-path.jpg"
+              width="1000"
+              height="666"
+              alt="Brick garden path lined with colourful flower beds and trimmed hedges"
+              loading="lazy"
+              class="gallery-photo"
+            >
+            <span class="gallery-caption">Garden Beds &amp; Planting</span>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="images/gallery-garden-edge.jpg"
+              width="667"
+              height="1000"
+              alt="Gravel path beside a garden bed with mixed perennial plantings"
+              loading="lazy"
+              class="gallery-photo"
+            >
+            <span class="gallery-caption">Garden Edging</span>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="images/gallery-hedge-trim.jpg"
+              width="1000"
+              height="666"
+              alt="Close-up of a hedge trimmer shaping a rounded shrub"
+              loading="lazy"
+              class="gallery-photo"
+            >
+            <span class="gallery-caption">Hedge Trimming</span>
+          </div>
         </div>
       </div>
     </section>
@@ -291,18 +295,12 @@
           </details>
 
           <details>
-            <summary>Additional Services</summary>
-            <ul>
-              <li>Paver patios</li>
-              <li>Fencing repair</li>
-            </ul>
-          </details>
-
-          <details>
-            <summary>Winter Services</summary>
+            <summary>Winter &amp; Additional Services</summary>
             <ul>
               <li>Snow removal</li>
               <li>Holiday lighting installation</li>
+              <li>Paver patios</li>
+              <li>Fencing repair</li>
             </ul>
           </details>
         </div>
@@ -354,12 +352,28 @@
       <div class="container">
         <p class="eyebrow">Service Area</p>
         <h2>Where we <em>work</em>.</h2>
-        <p class="section-sub">We proudly serve the Greater Victoria area, including Victoria and Saanich, BC.</p>
+        <p class="section-sub">We proudly serve Victoria, Saanich, Oak Bay, and Esquimalt, BC.</p>
 
+        <!--
+          Centered on coordinates (not a place name) on purpose — a
+          text query like "Greater Victoria, BC" made Google drop a
+          business pin (e.g. a random tourism office) on the map.
+          A plain lat/lng center avoids that.
+
+          Two zoom levels, not one: the map's on-screen box is much
+          smaller on a phone than on desktop, so the SAME zoom level
+          shows very different amounts of area on each — z=10 was
+          tuned to look right in the small mobile box, z=12 in the
+          much bigger desktop one. script.js picks the desktop one
+          when there's room for it; the src set here is the fallback
+          if JavaScript is off.
+        -->
         <div class="map-embed">
           <iframe
             title="Map of the Greater Victoria region"
-            src="https://www.google.com/maps?q=Greater+Victoria,+BC&z=10&output=embed"
+            src="https://www.google.com/maps?q=48.43,-123.31&z=10&output=embed"
+            data-src-mobile="https://www.google.com/maps?q=48.43,-123.31&z=10&output=embed"
+            data-src-desktop="https://www.google.com/maps?q=48.43,-123.31&z=12&output=embed"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
@@ -367,10 +381,54 @@
         <!-- Plain link fallback: some browsers/ad-blockers block map
              embeds outright, so this always works even if the iframe above doesn't load. -->
         <p class="map-fallback-link">
-          <a href="https://www.google.com/maps/search/?api=1&query=Greater+Victoria,+BC" target="_blank" rel="noopener">
+          <a href="https://www.google.com/maps/@48.43,-123.31,11z" target="_blank" rel="noopener">
             Open in Google Maps
           </a>
         </p>
+      </div>
+    </section>
+
+    <section id="faq" class="section faq">
+      <div class="container">
+        <p class="eyebrow">FAQ</p>
+        <h2>Everything you <em>need</em> to know.</h2>
+        <div class="faq-list">
+          <details>
+            <summary>How quickly can I get a quote?</summary>
+            <p>We reply to every quote request within 24 hours to set up a free on-site visit.</p>
+          </details>
+          <details>
+            <summary>What areas do you service?</summary>
+            <p>Victoria, Saanich, Oak Bay, and Esquimalt, BC.</p>
+          </details>
+          <details>
+            <summary>Are you fully insured?</summary>
+            <p>Yes — Cuff's Coastal Landscaping is fully insured.</p>
+          </details>
+          <details>
+            <summary>Do I need to be home for the quote?</summary>
+            <!-- [NEED_HOME_FOR_QUOTE] placeholder — fill in once known. -->
+            <p>[NEED_HOME_FOR_QUOTE]</p>
+          </details>
+          <details>
+            <summary>What size of projects do you handle?</summary>
+            <!-- [PROJECT_SIZE_RANGE] placeholder — fill in once known. -->
+            <p>[PROJECT_SIZE_RANGE]</p>
+          </details>
+          <details>
+            <summary>When are you available?</summary>
+            <p>We're available anytime &mdash; call to inquire about scheduling.</p>
+          </details>
+          <details>
+            <summary>What payment methods do you accept?</summary>
+            <p>E-transfer, cash, and cheques.</p>
+          </details>
+          <details>
+            <summary>Do you charge for a design consultation?</summary>
+            <!-- [DESIGN_CONSULTATION_FEE] placeholder — fill in once known. -->
+            <p>[DESIGN_CONSULTATION_FEE]</p>
+          </details>
+        </div>
       </div>
     </section>
 
@@ -391,6 +449,64 @@
           </a>
         </div>
         <p class="contact-note">Serving the Greater Victoria area. Available anytime &mdash; call to inquire.</p>
+
+        <!--
+          [FORMSPREE_ENDPOINT] is a placeholder. This form needs a
+          real backend to actually send an email, since a static
+          GitHub Pages site has no server of its own. To make it
+          work:
+          1. Go to formspree.io and create a free account (the site
+             owner needs to do this — Claude can't create accounts).
+          2. Create a new form there; it gives you a URL like
+             https://formspree.io/f/abcd1234
+          3. Replace the placeholder in the form's "action" attribute
+             below with that real URL.
+          Until then, this form is visible but won't actually deliver
+          email.
+        -->
+        <form class="quote-form" action="https://formspree.io/f/[FORMSPREE_ENDPOINT]" method="POST">
+          <p class="quote-form-note">Free, no obligation &mdash; 24-hour response guaranteed.</p>
+
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+          <div class="form-row">
+            <label for="qf-name">Name</label>
+            <input type="text" id="qf-name" name="name" required autocomplete="name">
+          </div>
+
+          <div class="form-row form-row-half">
+            <div>
+              <label for="qf-phone">Phone</label>
+              <input type="tel" id="qf-phone" name="phone" required autocomplete="tel">
+            </div>
+            <div>
+              <label for="qf-email">Email</label>
+              <input type="email" id="qf-email" name="email" required autocomplete="email">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label for="qf-address">Property Area / Address</label>
+            <input type="text" id="qf-address" name="address" autocomplete="street-address">
+          </div>
+
+          <fieldset class="form-row">
+            <legend>Services Needed</legend>
+            <div class="checkbox-group">
+              <label><input type="checkbox" name="services" value="Lawn & Garden Care"> Lawn &amp; Garden Care</label>
+              <label><input type="checkbox" name="services" value="Cleanup & Seasonal Maintenance"> Cleanup &amp; Seasonal Maintenance</label>
+              <label><input type="checkbox" name="services" value="Planting & Beds"> Planting &amp; Beds</label>
+              <label><input type="checkbox" name="services" value="Winter & Additional Services"> Winter &amp; Additional Services</label>
+            </div>
+          </fieldset>
+
+          <div class="form-row">
+            <label for="qf-details">Project Details</label>
+            <textarea id="qf-details" name="message" rows="4" placeholder="Tell us about your yard, goals, or timing..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Send My Free Quote Request</button>
+        </form>
       </div>
     </section>
 
@@ -406,13 +522,14 @@
             &nbsp;&middot;&nbsp;
             <a href="mailto:cufflandscaping@gmail.com">cufflandscaping@gmail.com</a>
           </p>
-          <p>Serving Greater Victoria, including Saanich, BC</p>
+          <p>Serving Victoria, Saanich, Oak Bay &amp; Esquimalt, BC</p>
         </div>
         <nav class="footer-links" aria-label="Quick links">
           <a href="#gallery">Recent Projects</a>
           <a href="#why-choose-us">Why Choose Us</a>
           <a href="#services">Services</a>
           <a href="#about">About</a>
+          <a href="#faq">FAQ</a>
           <a href="#contact">Contact</a>
         </nav>
       </div>
