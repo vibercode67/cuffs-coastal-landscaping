@@ -14,8 +14,6 @@ Explanations should be kept simple as changes are made.
   [GOOGLE_BUSINESS_URL] placeholder for the reviews link/button until
   the real profile link is provided
 - Payment methods accepted: e-transfer, cash, and cheques
-- Whether design consultations are free or charged: unknown — use
-  [DESIGN_CONSULTATION_FEE] placeholder in the FAQ
 - Hours: available all the time, call to inquire
 - In business 3+ years, client base of 50+
 - Quote process: free on-site quote, reply within 24 hours
@@ -79,10 +77,11 @@ its contact form, which conflicts with rule 4 above).
   `#eae5d9` for light sections, forest green `#1b3626` and near-black
   green `#121c16` for dark sections/footer, terracotta `#c27d38` as the
   one accent color (buttons, italic emphasis, numbers).
-- **Components**: pill-shaped buttons (`border-radius: 999px`); a
-  repeating "eyebrow" pattern above each `<h2>` (e.g. "01 // WHY CHOOSE
-  US" in Space Mono); numbered cards (01/02/03) with a small mono tag;
-  alternating light/dark section backgrounds for rhythm.
+- **Components**: pill-shaped buttons (`border-radius: 999px`); a plain
+  uppercase "eyebrow" label above each `<h2>` (e.g. "WHY CHOOSE US" in
+  Space Mono, no numbering — the site owner didn't like the numbered
+  "01 // ..." look); cards with a small mono tag pill; alternating
+  light/dark section backgrounds for rhythm.
 - The hero deliberately has no placeholder photo — it's a solid dark
   forest-green band with bold type instead, so it reads as an
   intentional choice rather than "missing image." Once a real hero
@@ -90,14 +89,23 @@ its contact form, which conflicts with rule 4 above).
 
 ## Site structure (single page)
 
-Header (logo + phone + "Get a Free Quote" button, no dropdown nav) →
-Hero (headline, CTA buttons, trust line, hero photo placeholder) →
-Why Choose Us (3 value-prop cards) → Reviews (placeholder until Google
-reviews exist) → Recent Projects (photo gallery) → What We Do (services,
-collapsed into <details> accordions — deliberately de-emphasized, not
-the main focus of the page) → About (text + stats grid) → FAQ
-(<details> accordions) → Service Area (map) → Contact → Footer (with
-quick-link nav, since the header itself has no nav links).
+Header (logo + full "Cuff's Coastal Landscaping" title, one line +
+phone + "Get a Free Quote" button + a hamburger menu button that opens
+a dropdown of section links) → Hero (headline, CTA buttons, trust
+badges) → Recent Projects (photo gallery — deliberately placed right
+after the hero, per the site owner's request) → Why Choose Us (3
+value-prop cards: reliable/timely, tailored plans, small dedicated
+crew) → Reviews (placeholder until Google reviews exist) → What We Do
+(services, collapsed into <details> accordions — deliberately
+de-emphasized, not the main focus of the page; 5 categories: Lawn &
+Garden Care, Cleanup & Seasonal Maintenance, Planting & Beds,
+Additional Services, Winter Services) → About (text + stats grid) →
+Service Area (map, zoomed to show the wider region — Saanich, Langford,
+Colwood — not just downtown) → Contact → Footer (with quick-link nav
+matching the header's hamburger menu).
+
+There is no FAQ section — removed at the site owner's request in favor
+of just calling.
 
 No fake star ratings, testimonials, or review counts anywhere on the
 page — the Reviews section stays a plain placeholder until the Google

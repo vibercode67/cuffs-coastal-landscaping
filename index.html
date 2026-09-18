@@ -53,19 +53,16 @@
   <a class="skip-link" href="#main">Skip to main content</a>
 
   <!--
-    Simplified header: logo/name on the left, phone + "Get a Free
-    Quote" button on the right. No dropdown menu — this is a single
-    page, so visitors just scroll, and the footer below has a "Quick
-    Links" list for jumping to a section directly.
+    Header: logo/name on the left, phone + "Get a Free Quote" button,
+    and a hamburger menu button on the right. The hamburger opens a
+    dropdown with links to jump to any section — kept out of the main
+    header bar so the header itself stays clean.
   -->
   <header class="site-header">
     <div class="header-inner">
       <a href="#top" class="brand">
         <span class="brand-mark" aria-hidden="true">&#127794;</span>
-        <span class="brand-text">
-          Cuff's Coastal
-          <span class="brand-tagline">Landscaping &middot; Greater Victoria</span>
-        </span>
+        <span class="brand-text">Cuff's Coastal Landscaping</span>
       </a>
       <div class="header-actions">
         <a class="pill pill-outline header-phone" href="tel:+16048458999">(604) 845-8999</a>
@@ -73,8 +70,19 @@
           <span class="btn-label-short">Free Quote</span>
           <span class="btn-label-full">Get a Free Quote</span>
         </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span class="visually-hidden">Menu</span>
+          <span class="hamburger" aria-hidden="true"></span>
+        </button>
       </div>
     </div>
+    <nav id="site-nav" class="site-nav" aria-label="Section links">
+      <a href="#gallery">Recent Projects</a>
+      <a href="#why-choose-us">Why Choose Us</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
   <main id="main">
@@ -110,59 +118,9 @@
       </div>
     </section>
 
-    <section id="why-choose-us" class="section why-choose-us">
-      <div class="container">
-        <p class="eyebrow">01 &frasl;&frasl; Why Choose Us</p>
-        <h2>Local roots, <em>personal</em> care.</h2>
-        <p class="section-sub">A small crew on purpose &mdash; when you hire Cuff's Coastal, the same people show up every time.</p>
-
-        <div class="why-grid">
-          <div class="why-card">
-            <div class="why-number">01</div>
-            <h3>Reliable &amp; Timely Service</h3>
-            <p>We show up when we say we will, and every quote request gets a reply within 24 hours.</p>
-            <span class="tag">On Time, Every Time</span>
-          </div>
-          <div class="why-card">
-            <div class="why-number">02</div>
-            <h3>Tailored Plans for Every Client</h3>
-            <p>Every yard is different. We build a plan around your space and what you actually need, not a one-size-fits-all package.</p>
-            <span class="tag">Custom Tailored</span>
-          </div>
-          <div class="why-card">
-            <div class="why-number">03</div>
-            <h3>Commitment to Quality &amp; Safety</h3>
-            <p>Fully insured, careful on every property, and focused on doing the job right the first time.</p>
-            <span class="tag">Insured &amp; Careful</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="reviews" class="section reviews">
-      <div class="container">
-        <p class="eyebrow">02 &frasl;&frasl; Reviews</p>
-        <h2>What our <em>clients</em> say.</h2>
-        <div class="reviews-card">
-          <p>
-            We're setting up our Google Business Profile now &mdash;
-            reviews from our clients will show up here soon.
-          </p>
-          <!--
-            [GOOGLE_BUSINESS_URL] is a placeholder — once the Google
-            Business Profile is created and verified, replace this
-            href with the real profile link.
-          -->
-          <a class="pill pill-outline" href="[GOOGLE_BUSINESS_URL]" target="_blank" rel="noopener">
-            Read Reviews on Google
-          </a>
-        </div>
-      </div>
-    </section>
-
     <section id="gallery" class="section gallery">
       <div class="container">
-        <p class="eyebrow">03 &frasl;&frasl; Gallery</p>
+        <p class="eyebrow">Gallery</p>
         <h2>Recent <em>projects</em>.</h2>
         <p class="section-sub">Photos coming soon.</p>
 
@@ -200,6 +158,53 @@
       </div>
     </section>
 
+    <section id="why-choose-us" class="section why-choose-us">
+      <div class="container">
+        <p class="eyebrow">Why Choose Us</p>
+        <h2>Local roots, <em>personal</em> care.</h2>
+        <p class="section-sub">A small crew on purpose &mdash; when you hire Cuff's Coastal, the same people show up every time.</p>
+
+        <div class="why-grid">
+          <div class="why-card">
+            <h3>Reliable &amp; Timely Service</h3>
+            <p>We show up when we say we will, and every quote request gets a reply within 24 hours.</p>
+            <span class="tag">On Time, Every Time</span>
+          </div>
+          <div class="why-card">
+            <h3>Tailored Plans for Every Client</h3>
+            <p>Every yard is different. We build a plan around your space and what you actually need, not a one-size-fits-all package.</p>
+            <span class="tag">Custom Tailored</span>
+          </div>
+          <div class="why-card">
+            <h3>Small, Dedicated Crew</h3>
+            <p>No rotating subcontractors. The same 1&ndash;3 person team works on your property every visit, and we're fully insured.</p>
+            <span class="tag">Same Crew, Every Time</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews" class="section reviews">
+      <div class="container">
+        <p class="eyebrow">Reviews</p>
+        <h2>What our <em>clients</em> say.</h2>
+        <div class="reviews-card">
+          <p>
+            We're setting up our Google Business Profile now &mdash;
+            reviews from our clients will show up here soon.
+          </p>
+          <!--
+            [GOOGLE_BUSINESS_URL] is a placeholder — once the Google
+            Business Profile is created and verified, replace this
+            href with the real profile link.
+          -->
+          <a class="pill pill-outline" href="[GOOGLE_BUSINESS_URL]" target="_blank" rel="noopener">
+            Read Reviews on Google
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!--
       Services: deliberately NOT the centerpiece of the page. It's
       collapsed into <details> accordions (a native HTML element — no
@@ -208,7 +213,7 @@
     -->
     <section id="services" class="section services services-dark">
       <div class="container">
-        <p class="eyebrow eyebrow-light">04 &frasl;&frasl; Services</p>
+        <p class="eyebrow eyebrow-light">Services</p>
         <h2 class="on-dark">Year-round care, <em>every</em> season covered.</h2>
         <p class="services-intro">
           From weekly lawn care to seasonal projects, we handle the
@@ -217,7 +222,7 @@
 
         <div class="service-groups">
           <details>
-            <summary><span class="service-index">S.01</span> Lawn &amp; Garden Care</summary>
+            <summary>Lawn &amp; Garden Care</summary>
             <ul>
               <li>Regular lawn and garden maintenance</li>
               <li>Lawn mowing and edging</li>
@@ -231,7 +236,7 @@
           </details>
 
           <details>
-            <summary><span class="service-index">S.02</span> Cleanup &amp; Maintenance</summary>
+            <summary>Cleanup &amp; Seasonal Maintenance</summary>
             <ul>
               <li>Spring and fall cleanups</li>
               <li>Leaf removal</li>
@@ -245,7 +250,7 @@
           </details>
 
           <details>
-            <summary><span class="service-index">S.03</span> Planting &amp; Beds</summary>
+            <summary>Planting &amp; Beds</summary>
             <ul>
               <li>Garden bed installation and maintenance</li>
               <li>Planting (flowers, shrubs, small trees)</li>
@@ -255,10 +260,16 @@
           </details>
 
           <details>
-            <summary><span class="service-index">S.04</span> Additional Services</summary>
+            <summary>Additional Services</summary>
             <ul>
               <li>Paver patios</li>
               <li>Fencing repair</li>
+            </ul>
+          </details>
+
+          <details>
+            <summary>Winter Services</summary>
+            <ul>
               <li>Snow removal</li>
               <li>Holiday lighting installation</li>
             </ul>
@@ -269,7 +280,7 @@
 
     <section id="about" class="section about">
       <div class="container">
-        <p class="eyebrow">05 &frasl;&frasl; About</p>
+        <p class="eyebrow">About</p>
         <h2>UVic alum, <em>local</em> owner.</h2>
         <div class="about-grid">
           <div class="about-text">
@@ -308,50 +319,16 @@
       </div>
     </section>
 
-    <section id="faq" class="section faq">
-      <div class="container">
-        <p class="eyebrow">06 &frasl;&frasl; FAQ</p>
-        <h2>Everything you <em>need</em> to know.</h2>
-        <div class="faq-list">
-          <details>
-            <summary>Are you insured?</summary>
-            <p>Yes — Cuff's Coastal Landscaping is fully insured.</p>
-          </details>
-          <details>
-            <summary>Do you offer free estimates?</summary>
-            <p>Yes. Every job starts with a free on-site quote, and we reply within 24 hours of your call or email.</p>
-          </details>
-          <details>
-            <summary>What payment methods do you accept?</summary>
-            <p>E-transfer, cash, and cheques.</p>
-          </details>
-          <details>
-            <summary>Do you charge for a design consultation?</summary>
-            <!-- [DESIGN_CONSULTATION_FEE] placeholder — fill in once known. -->
-            <p>[DESIGN_CONSULTATION_FEE]</p>
-          </details>
-          <details>
-            <summary>Do you only do one-time jobs, or ongoing maintenance too?</summary>
-            <p>Both — we offer one-time cleanups and projects, as well as regular lawn and garden maintenance.</p>
-          </details>
-          <details>
-            <summary>What areas do you service?</summary>
-            <p>The Greater Victoria area, including Victoria and Saanich, BC.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
     <section id="areas" class="section areas">
       <div class="container">
-        <p class="eyebrow">07 &frasl;&frasl; Service Area</p>
+        <p class="eyebrow">Service Area</p>
         <h2>Where we <em>work</em>.</h2>
         <p class="section-sub">We proudly serve the Greater Victoria area, including Victoria and Saanich, BC.</p>
 
         <div class="map-embed">
           <iframe
-            title="Map of the Greater Victoria area"
-            src="https://www.google.com/maps?q=Greater+Victoria,+BC&output=embed"
+            title="Map of the Greater Victoria region"
+            src="https://www.google.com/maps?q=Greater+Victoria,+BC&z=10&output=embed"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
@@ -368,7 +345,7 @@
 
     <section id="contact" class="section contact contact-dark">
       <div class="container">
-        <p class="eyebrow eyebrow-light">08 &frasl;&frasl; Get a Free Quote</p>
+        <p class="eyebrow eyebrow-light">Get a Free Quote</p>
         <h2 class="on-dark">Let's get <em>started</em>.</h2>
         <p class="section-sub on-dark-sub">
           Call or email to set up a free on-site quote. We reply within
@@ -398,14 +375,13 @@
             &nbsp;&middot;&nbsp;
             <a href="mailto:cufflandscaping@gmail.com">cufflandscaping@gmail.com</a>
           </p>
-          <p>Serving Greater Victoria, BC</p>
+          <p>Serving Greater Victoria, including Saanich, BC</p>
         </div>
         <nav class="footer-links" aria-label="Quick links">
-          <a href="#why-choose-us">Why Choose Us</a>
           <a href="#gallery">Recent Projects</a>
+          <a href="#why-choose-us">Why Choose Us</a>
           <a href="#services">Services</a>
           <a href="#about">About</a>
-          <a href="#faq">FAQ</a>
           <a href="#contact">Contact</a>
         </nav>
       </div>

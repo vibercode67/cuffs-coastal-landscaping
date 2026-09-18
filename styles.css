@@ -231,48 +231,109 @@ h2 {
 .brand {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.5rem;
   text-decoration: none;
   min-width: 0;
 }
 
 .brand-mark {
   flex-shrink: 0;
-  width: 2.1rem;
-  height: 2.1rem;
+  width: 2.3rem;
+  height: 2.3rem;
   border-radius: 8px;
   background: var(--color-tan);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 .brand-text {
   font-family: var(--font-serif);
-  font-size: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.15;
   color: var(--color-forest);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.brand-tagline {
-  display: none; /* shown again on wider screens below, once there's
-                     room next to the brand name without truncating */
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-terracotta);
-  white-space: nowrap;
 }
 
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.5rem;
   flex-shrink: 0;
+}
+
+/* ---- Hamburger menu button + dropdown ----
+   Opens a simple list of section links. Kept out of the main header
+   row so the header itself stays uncluttered. */
+.nav-toggle {
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  width: 2.2rem;
+  height: 2.2rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  display: block;
+  width: 1.1rem;
+  height: 2px;
+  background: var(--color-forest);
+  position: relative;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.hamburger::before {
+  top: -5px;
+}
+
+.hamburger::after {
+  top: 5px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.site-nav {
+  display: none;
+  flex-direction: column;
+  background: var(--color-cream);
+  border-top: 1px solid var(--color-border);
+  padding: 0.5rem 1.25rem 1rem;
+}
+
+.site-nav.is-open {
+  display: flex;
+}
+
+.site-nav a {
+  padding: 0.75rem 0;
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 600;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-nav a:last-child {
+  border-bottom: none;
 }
 
 .header-phone {
@@ -365,13 +426,6 @@ h2 {
   border-radius: var(--radius);
   padding: 1.75rem 1.5rem;
   position: relative;
-}
-
-.why-number {
-  font-family: var(--font-mono);
-  color: var(--color-terracotta);
-  font-size: 0.9rem;
-  margin-bottom: 0.75rem;
 }
 
 .why-card h3 {
@@ -486,13 +540,6 @@ h2.on-dark {
   gap: 0.75rem;
 }
 
-.service-index {
-  font-family: var(--font-mono);
-  color: var(--color-terracotta);
-  font-size: 0.8rem;
-  margin-right: 0.5rem;
-}
-
 .service-groups summary::-webkit-details-marker {
   display: none;
 }
@@ -572,50 +619,6 @@ h2.on-dark {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--color-forest);
-}
-
-/* ---- FAQ ---- */
-.faq-list {
-  max-width: 760px;
-  margin: 1.5rem auto 0;
-}
-
-.faq-list details {
-  border-bottom: 1px solid var(--color-border);
-  padding: 1rem 0;
-}
-
-.faq-list summary {
-  cursor: pointer;
-  font-weight: 700;
-  color: var(--color-forest);
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-}
-
-.faq-list summary::-webkit-details-marker {
-  display: none;
-}
-
-.faq-list summary::after {
-  content: "+";
-  font-weight: 700;
-  font-size: 1.2rem;
-  color: var(--color-terracotta);
-  flex-shrink: 0;
-}
-
-.faq-list details[open] summary::after {
-  content: "\2212";
-}
-
-.faq-list p {
-  margin: 0.75rem 0 0;
-  color: var(--color-text-muted);
-  max-width: 65ch;
 }
 
 /* ---- Service area map + fallback link ----
@@ -738,12 +741,14 @@ h2.on-dark {
     display: inline-block;
   }
 
-  .brand-text {
-    font-size: 1.15rem;
+  .brand-mark {
+    width: 2.8rem;
+    height: 2.8rem;
+    font-size: 1.5rem;
   }
 
-  .brand-tagline {
-    display: block;
+  .brand-text {
+    font-size: 1.4rem;
   }
 
   h2 {
