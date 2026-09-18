@@ -39,23 +39,22 @@
 
   <a class="skip-link" href="#main">Skip to main content</a>
 
+  <!--
+    Simplified header: logo/name on the left, phone + "Get a Free
+    Quote" button on the right. No dropdown menu — this is a single
+    page, so visitors just scroll, and the footer below has a "Quick
+    Links" list for jumping to a section directly.
+  -->
   <header class="site-header">
     <div class="header-inner">
       <a href="#top" class="brand">Cuff's Coastal Landscaping</a>
-
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
-        <span class="visually-hidden">Menu</span>
-        <span class="hamburger" aria-hidden="true"></span>
-      </button>
-
-      <nav id="primary-nav" class="primary-nav">
-        <a href="#services">Services</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#areas">Areas</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a class="nav-call" href="tel:+16048458999">(604) 845-8999</a>
-      </nav>
+      <div class="header-actions">
+        <a class="header-phone" href="tel:+16048458999">(604) 845-8999</a>
+        <a class="btn btn-primary btn-sm" href="#contact">
+          <span class="btn-label-short">Free Quote</span>
+          <span class="btn-label-full">Get a Free Quote</span>
+        </a>
+      </div>
     </div>
   </header>
 
@@ -63,81 +62,92 @@
 
     <section id="top" class="hero">
       <div class="container">
-        <h1>Reliable lawn &amp; garden care across Greater Victoria</h1>
+        <h1>Transform Your Outdoor Space Into Your Favourite Place</h1>
         <p class="hero-sub">
-          Mowing, cleanups, planting, and yard maintenance from a local,
-          fully insured crew. Free on-site quotes, and we reply within 24 hours.
+          Lawn care, cleanups, planting, and landscaping for homes across
+          Greater Victoria — from a local, fully insured crew.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="tel:+16048458999">
             Call (604) 845-8999
           </a>
           <a class="btn btn-secondary" href="#contact">
-            Request a free quote
+            Get a Free Quote
           </a>
+        </div>
+        <p class="hero-trust">
+          Trusted by 50+ happy clients<span class="dot">&middot;</span>Fully insured<span class="dot">&middot;</span>Free on-site quotes
+        </p>
+
+        <!--
+          Hero photo placeholder. Once a great "after" shot exists,
+          replace this whole <div class="hero-image">...</div> block
+          with, e.g.:
+
+          <img
+            src="images/hero.webp"
+            width="1600"
+            height="900"
+            alt="Describe the real photo, e.g. Freshly landscaped
+                 backyard patio and garden beds in Victoria, BC"
+            class="hero-image-photo"
+          >
+
+          (No loading="lazy" here — this image is above the fold, so
+          it should load immediately, not lazily.)
+        -->
+        <div class="hero-image" aria-hidden="true">
+          <span>Photo coming soon</span>
         </div>
       </div>
     </section>
 
-    <section id="services" class="section services">
+    <section id="why-choose-us" class="section why-choose-us">
       <div class="container">
-        <h2>Services</h2>
-
-        <div class="service-groups">
-          <div class="service-group">
-            <h3>Lawn &amp; Garden Care</h3>
-            <ul>
-              <li>Regular lawn and garden maintenance</li>
-              <li>Lawn mowing and edging</li>
-              <li>Lawn aeration</li>
-              <li>Overseeding</li>
-              <li>Dethatching</li>
-              <li>Fertilizing</li>
-              <li>Moss control</li>
-              <li>Sod installation (small yards)</li>
-            </ul>
+        <h2>Why Choose Cuff's Coastal Landscaping</h2>
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="why-icon" aria-hidden="true">&#9201;</div>
+            <h3>Reliable &amp; Timely Service</h3>
+            <p>We show up when we say we will, and every quote request gets a reply within 24 hours.</p>
           </div>
-
-          <div class="service-group">
-            <h3>Cleanup &amp; Maintenance</h3>
-            <ul>
-              <li>Spring and fall cleanups</li>
-              <li>Leaf removal</li>
-              <li>Hedge and shrub trimming</li>
-              <li>Pruning</li>
-              <li>Weeding</li>
-              <li>Yard waste hauling</li>
-              <li>Gutter cleaning</li>
-              <li>Power washing (patios, driveways)</li>
-            </ul>
+          <div class="why-card">
+            <div class="why-icon" aria-hidden="true">&#127919;</div>
+            <h3>Tailored Plans for Every Client</h3>
+            <p>Every yard is different. We build a plan around your space and what you actually need, not a one-size-fits-all package.</p>
           </div>
-
-          <div class="service-group">
-            <h3>Planting &amp; Beds</h3>
-            <ul>
-              <li>Garden bed installation and maintenance</li>
-              <li>Planting (flowers, shrubs, small trees)</li>
-              <li>Mulching and bark mulch</li>
-              <li>Seasonal planters and containers</li>
-            </ul>
+          <div class="why-card">
+            <div class="why-icon" aria-hidden="true">&#128737;&#65039;</div>
+            <h3>Commitment to Quality &amp; Safety</h3>
+            <p>Fully insured, careful on every property, and focused on doing the job right the first time.</p>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="service-group">
-            <h3>Additional Services</h3>
-            <ul>
-              <li>Paver patios</li>
-              <li>Fencing repair</li>
-              <li>Snow removal</li>
-              <li>Holiday lighting installation</li>
-            </ul>
-          </div>
+    <section id="reviews" class="section reviews">
+      <div class="container">
+        <h2>What Our Clients Say</h2>
+        <div class="reviews-card">
+          <p>
+            We're setting up our Google Business Profile now &mdash;
+            reviews from our clients will show up here soon.
+          </p>
+          <!--
+            [GOOGLE_BUSINESS_URL] is a placeholder — once the Google
+            Business Profile is created and verified, replace this
+            href with the real profile link.
+          -->
+          <a class="btn btn-secondary" href="[GOOGLE_BUSINESS_URL]" target="_blank" rel="noopener">
+            Read Reviews on Google
+          </a>
         </div>
       </div>
     </section>
 
     <section id="gallery" class="section gallery">
       <div class="container">
-        <h2>Our Work</h2>
+        <h2>Recent Projects</h2>
         <p class="section-note">Photos coming soon.</p>
 
         <div class="gallery-grid">
@@ -174,6 +184,146 @@
       </div>
     </section>
 
+    <!--
+      Services: deliberately NOT the centerpiece of the page anymore.
+      It's collapsed into <details> accordions (a native HTML element —
+      no JavaScript needed) so visitors can expand a category if they
+      want the full list, without it taking over the page.
+    -->
+    <section id="services" class="section services">
+      <div class="container">
+        <h2>What We Do</h2>
+        <p class="services-intro">
+          From weekly lawn care to seasonal projects, we handle the
+          everyday and the big jobs. Tap a category below to see the
+          full list.
+        </p>
+
+        <div class="service-groups">
+          <details>
+            <summary>Lawn &amp; Garden Care</summary>
+            <ul>
+              <li>Regular lawn and garden maintenance</li>
+              <li>Lawn mowing and edging</li>
+              <li>Lawn aeration</li>
+              <li>Overseeding</li>
+              <li>Dethatching</li>
+              <li>Fertilizing</li>
+              <li>Moss control</li>
+              <li>Sod installation (small yards)</li>
+            </ul>
+          </details>
+
+          <details>
+            <summary>Cleanup &amp; Maintenance</summary>
+            <ul>
+              <li>Spring and fall cleanups</li>
+              <li>Leaf removal</li>
+              <li>Hedge and shrub trimming</li>
+              <li>Pruning</li>
+              <li>Weeding</li>
+              <li>Yard waste hauling</li>
+              <li>Gutter cleaning</li>
+              <li>Power washing (patios, driveways)</li>
+            </ul>
+          </details>
+
+          <details>
+            <summary>Planting &amp; Beds</summary>
+            <ul>
+              <li>Garden bed installation and maintenance</li>
+              <li>Planting (flowers, shrubs, small trees)</li>
+              <li>Mulching and bark mulch</li>
+              <li>Seasonal planters and containers</li>
+            </ul>
+          </details>
+
+          <details>
+            <summary>Additional Services</summary>
+            <ul>
+              <li>Paver patios</li>
+              <li>Fencing repair</li>
+              <li>Snow removal</li>
+              <li>Holiday lighting installation</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section about">
+      <div class="container">
+        <h2>About</h2>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              Cuff's Coastal Landscaping has been serving the Greater
+              Victoria area for over 3 years, with a client base of
+              more than 50 happy customers. The owner-operator has
+              lived in Victoria for over 6 years and is a UVic
+              graduate. We run a small crew of 1&ndash;3 people, and
+              we're fully insured.
+            </p>
+            <p>
+              Every job starts with a free on-site quote &mdash; call
+              anytime to inquire, and we'll reply within 24 hours.
+            </p>
+          </div>
+          <div class="about-stats">
+            <div class="stat">
+              <strong>3+</strong>
+              <span>Years in business</span>
+            </div>
+            <div class="stat">
+              <strong>50+</strong>
+              <span>Happy clients</span>
+            </div>
+            <div class="stat">
+              <strong>1&ndash;3</strong>
+              <span>Person crew</span>
+            </div>
+            <div class="stat">
+              <strong>Yes</strong>
+              <span>Fully insured</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section faq">
+      <div class="container">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <details>
+            <summary>Are you insured?</summary>
+            <p>Yes — Cuff's Coastal Landscaping is fully insured.</p>
+          </details>
+          <details>
+            <summary>Do you offer free estimates?</summary>
+            <p>Yes. Every job starts with a free on-site quote, and we reply within 24 hours of your call or email.</p>
+          </details>
+          <details>
+            <summary>What payment methods do you accept?</summary>
+            <p>E-transfer, cash, and cheques.</p>
+          </details>
+          <details>
+            <summary>Do you charge for a design consultation?</summary>
+            <!-- [DESIGN_CONSULTATION_FEE] placeholder — fill in once known. -->
+            <p>[DESIGN_CONSULTATION_FEE]</p>
+          </details>
+          <details>
+            <summary>Do you only do one-time jobs, or ongoing maintenance too?</summary>
+            <p>Both — we offer one-time cleanups and projects, as well as regular lawn and garden maintenance.</p>
+          </details>
+          <details>
+            <summary>What areas do you service?</summary>
+            <p>The Greater Victoria area, including Victoria and Saanich, BC.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <section id="areas" class="section areas">
       <div class="container">
         <h2>Service Area</h2>
@@ -193,35 +343,6 @@
           <a href="https://www.google.com/maps/search/?api=1&query=Greater+Victoria,+BC" target="_blank" rel="noopener">
             Open in Google Maps
           </a>
-        </p>
-
-        <!--
-          [GOOGLE_BUSINESS_URL] is a placeholder — once the Google
-          Business Profile is created, replace it with the real profile
-          link (something like https://g.page/r/....). That page will
-          show reviews once customers leave them.
-        -->
-        <p class="reviews-link">
-          <a class="btn btn-secondary" href="[GOOGLE_BUSINESS_URL]" target="_blank" rel="noopener">
-            See our reviews on Google
-          </a>
-        </p>
-      </div>
-    </section>
-
-    <section id="about" class="section about">
-      <div class="container">
-        <h2>About</h2>
-        <p>
-          Cuff's Coastal Landscaping has been serving the Greater Victoria
-          area for over 3 years, with a client base of more than 50 happy
-          customers. The owner-operator has lived in Victoria for over 6
-          years and is a UVic graduate. We run a small crew of 1&ndash;3
-          people, and we're fully insured.
-        </p>
-        <p>
-          Every job starts with a free on-site quote &mdash; call anytime
-          to inquire, and we'll reply within 24 hours.
         </p>
       </div>
     </section>
@@ -249,13 +370,25 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p class="footer-brand">Cuff's Coastal Landscaping</p>
-      <p>
-        <a href="tel:+16048458999">(604) 845-8999</a>
-        &nbsp;&middot;&nbsp;
-        <a href="mailto:cufflandscaping@gmail.com">cufflandscaping@gmail.com</a>
-      </p>
-      <p>Serving Greater Victoria, BC</p>
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand">Cuff's Coastal Landscaping</p>
+          <p>
+            <a href="tel:+16048458999">(604) 845-8999</a>
+            &nbsp;&middot;&nbsp;
+            <a href="mailto:cufflandscaping@gmail.com">cufflandscaping@gmail.com</a>
+          </p>
+          <p>Serving Greater Victoria, BC</p>
+        </div>
+        <nav class="footer-links" aria-label="Quick links">
+          <a href="#why-choose-us">Why Choose Us</a>
+          <a href="#gallery">Recent Projects</a>
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
       <p class="copyright">&copy; <span id="year"></span> Cuff's Coastal Landscaping</p>
     </div>
   </footer>

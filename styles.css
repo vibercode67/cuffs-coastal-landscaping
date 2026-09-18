@@ -36,8 +36,8 @@
 }
 
 html {
-  /* smooth-scroll so clicking a nav link (e.g. #services) glides down
-     the page instead of jumping instantly */
+  /* smooth-scroll so clicking an anchor link (e.g. a footer "Quick
+     Link") glides down the page instead of jumping instantly */
   scroll-behavior: smooth;
 }
 
@@ -78,20 +78,14 @@ a {
   background: var(--color-bg-alt);
 }
 
-/* Screen-reader-only text (visible to assistive tech, hidden visually).
-   Used for the hamburger button's label. */
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
+h2 {
+  text-align: center;
+  margin-bottom: 0.5rem;
 }
 
 /* "Skip to main content" link — hidden until a keyboard user tabs to it,
    then it's the very first focusable thing on the page. Helps people
-   using a keyboard or screen reader skip past the header/nav. */
+   using a keyboard or screen reader skip past the header. */
 .skip-link {
   position: absolute;
   left: -999px;
@@ -117,6 +111,11 @@ a {
   text-align: center;
 }
 
+.btn-sm {
+  padding: 0.55rem 1rem;
+  font-size: 0.9rem;
+}
+
 .btn-primary {
   background: var(--color-primary);
   color: #fff;
@@ -139,7 +138,10 @@ a {
   color: #fff;
 }
 
-/* ---- Header / nav ---- */
+/* ---- Header ----
+   Deliberately simple: brand on the left, phone + a "Get a Free Quote"
+   button on the right. No dropdown menu — see the footer for in-page
+   links. */
 .site-header {
   background: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
@@ -155,85 +157,56 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
 }
 
 .brand {
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   color: var(--color-primary);
   text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.nav-toggle {
-  background: none;
-  border: none;
-  padding: 0.5rem;
-  cursor: pointer;
-}
-
-.hamburger,
-.hamburger::before,
-.hamburger::after {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: var(--color-text);
-  position: relative;
-}
-
-.hamburger::before,
-.hamburger::after {
-  content: "";
-  position: absolute;
-  left: 0;
-}
-
-.hamburger::before {
-  top: -7px;
-}
-
-.hamburger::after {
-  top: 7px;
-}
-
-/* Nav links: hidden by default on small screens, shown as a dropdown
-   panel when the hamburger button is toggled (see script.js) */
-.primary-nav {
-  display: none;
-  flex-direction: column;
-  gap: 0.25rem;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: var(--color-bg);
-  border-bottom: 1px solid var(--color-border);
-  padding: 0.5rem 1.25rem 1rem;
-}
-
-.primary-nav.is-open {
+.header-actions {
   display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
 }
 
-.primary-nav a {
-  padding: 0.6rem 0;
+.btn-label-full {
+  display: none;
+}
+
+.btn-label-short {
+  display: inline;
+}
+
+@media (min-width: 480px) {
+  .btn-label-full {
+    display: inline;
+  }
+
+  .btn-label-short {
+    display: none;
+  }
+}
+
+.header-phone {
+  display: none; /* shown again on wider screens below — on a phone,
+                     the sticky "Call Now" bar at the bottom already
+                     covers this */
+  font-weight: 600;
   text-decoration: none;
-  color: var(--color-text);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.primary-nav a:last-child {
-  border-bottom: none;
-}
-
-.nav-call {
-  font-weight: 700;
-  color: var(--color-primary) !important;
+  white-space: nowrap;
 }
 
 /* ---- Hero ---- */
 .hero {
-  padding: 3rem 0;
+  padding: 2.5rem 0 3rem;
   text-align: center;
 }
 
@@ -256,39 +229,108 @@ a {
   align-items: stretch;
 }
 
-/* ---- Services ---- */
-.service-groups {
-  display: grid;
-  gap: 1.5rem;
-  margin-top: 1.5rem;
+.hero-trust {
+  margin-top: 1.25rem;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
 }
 
-.service-group h3 {
+.hero-trust .dot {
+  margin: 0 0.5rem;
+}
+
+/* Hero photo placeholder — swap for a real <img> once a good "after"
+   photo exists (see the HTML comment above it). Uses the same
+   dashed-border / striped look as the gallery placeholders further
+   down, so it's obviously a placeholder rather than a design choice. */
+.hero-image {
+  margin: 2rem auto 0;
+  max-width: var(--container-width);
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius);
+  border: 1px dashed var(--color-border);
+  background: repeating-linear-gradient(
+    45deg,
+    var(--color-bg-alt),
+    var(--color-bg-alt) 10px,
+    #e7e2d3 10px,
+    #e7e2d3 20px
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image span {
+  color: var(--color-text-muted);
+  font-style: italic;
+  background: var(--color-bg);
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+}
+
+/* ---- Why Choose Us ---- */
+.why-grid {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.why-card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.why-icon {
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.why-card h3 {
   color: var(--color-primary);
   font-size: 1.05rem;
   margin-bottom: 0.5rem;
 }
 
-.service-group ul {
+.why-card p {
+  color: var(--color-text-muted);
   margin: 0;
-  padding-left: 1.1rem;
 }
 
-.service-group li {
-  margin-bottom: 0.35rem;
+/* ---- Reviews ----
+   No fake star ratings or testimonials here — see the note in
+   index.html. This shows a placeholder until real Google reviews
+   exist. */
+.reviews-card {
+  background: var(--color-bg);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  max-width: 640px;
+  margin: 1.5rem auto 0;
+}
+
+.reviews-card p {
+  color: var(--color-text-muted);
+  margin: 0 0 1.25rem;
 }
 
 /* ---- Gallery ---- */
 .section-note {
   color: var(--color-text-muted);
   font-style: italic;
+  text-align: center;
 }
 
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.75rem;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
 .gallery-placeholder {
@@ -310,7 +352,147 @@ a {
   height: auto;
 }
 
-/* ---- Service area map + reviews link ----
+/* ---- Services ----
+   Deliberately de-emphasized: collapsed into <details> accordions (a
+   native HTML element, no JavaScript needed) instead of one long wall
+   of bullet points, so it doesn't dominate the page. */
+.services-intro {
+  color: var(--color-text-muted);
+  max-width: 60ch;
+  margin: 0 auto 1.5rem;
+  text-align: center;
+}
+
+.service-groups {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.service-groups details {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.service-groups summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--color-primary);
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.service-groups summary::-webkit-details-marker {
+  display: none;
+}
+
+.service-groups summary::after {
+  content: "+";
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.service-groups details[open] summary::after {
+  content: "\2212";
+}
+
+.service-groups ul {
+  margin: 0.75rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.service-groups li {
+  margin-bottom: 0.35rem;
+}
+
+/* ---- About ----
+   Two-column on wider screens (text + a stats grid) so it uses the
+   full page width instead of a single narrow paragraph stuck on the
+   left with empty space beside it. */
+.about-grid {
+  display: grid;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.about-text p {
+  max-width: 65ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.stat {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  text-align: center;
+}
+
+.stat strong {
+  display: block;
+  font-size: 1.4rem;
+  color: var(--color-primary);
+}
+
+.stat span {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+/* ---- FAQ ---- */
+.faq-list {
+  max-width: 760px;
+  margin: 1.5rem auto 0;
+}
+
+.faq-list details {
+  border-bottom: 1px solid var(--color-border);
+  padding: 1rem 0;
+}
+
+.faq-list summary {
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-list summary::after {
+  content: "+";
+  font-weight: 700;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.faq-list details[open] summary::after {
+  content: "\2212";
+}
+
+.faq-list p {
+  margin: 0.75rem 0 0;
+  color: var(--color-text-muted);
+  max-width: 65ch;
+}
+
+/* ---- Service area map + fallback link ----
    aspect-ratio keeps the map a consistent shape at any width, so the
    page layout doesn't jump around while the map tile loads. */
 .map-embed {
@@ -330,21 +512,13 @@ a {
 .map-fallback-link {
   margin-top: 0.5rem;
   font-size: 0.9rem;
-}
-
-.reviews-link {
-  margin-top: 1.25rem;
+  text-align: center;
 }
 
 @media (min-width: 700px) {
   .map-embed {
     aspect-ratio: 16 / 6;
   }
-}
-
-/* ---- About ---- */
-.about p {
-  max-width: 65ch;
 }
 
 /* ---- Contact ---- */
@@ -357,19 +531,26 @@ a {
 
 .contact-note {
   color: var(--color-text-muted);
+  text-align: center;
 }
 
 /* ---- Footer ---- */
 .site-footer {
   background: var(--color-primary);
   color: #fff;
-  text-align: center;
-  padding: 2rem 0 5.5rem; /* extra bottom padding so the sticky mobile
-                              call bar never covers footer text */
+  padding: 2.5rem 0 5.5rem; /* extra bottom padding so the sticky mobile
+                                call bar never covers footer text */
 }
 
 .site-footer a {
   color: #fff;
+}
+
+.footer-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: center;
 }
 
 .footer-brand {
@@ -377,9 +558,17 @@ a {
   font-size: 1.1rem;
 }
 
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 .copyright {
   color: #cfe0d1;
   font-size: 0.85rem;
+  text-align: center;
+  margin-top: 1.5rem;
 }
 
 /* ---- Sticky mobile "Call Now" bar ----
@@ -404,27 +593,20 @@ a {
    Wider screens (tablets and up)
    ========================================================================== */
 @media (min-width: 700px) {
-  .nav-toggle {
-    display: none;
+  .header-phone {
+    display: inline;
   }
 
-  .primary-nav {
-    display: flex;
-    flex-direction: row;
-    position: static;
-    background: none;
-    border: none;
-    padding: 0;
-    gap: 1.5rem;
-  }
-
-  .primary-nav a {
-    border-bottom: none;
-    padding: 0;
+  .brand {
+    font-size: 1.1rem;
   }
 
   .hero h1 {
-    font-size: 2.6rem;
+    font-size: 2.75rem;
+  }
+
+  .hero-sub {
+    max-width: 52ch;
   }
 
   .hero-actions {
@@ -436,29 +618,44 @@ a {
     flex: 0 0 auto;
   }
 
-  .service-groups {
-    grid-template-columns: repeat(2, 1fr);
+  .hero-image {
+    aspect-ratio: 21 / 9;
+  }
+
+  .why-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .gallery-grid {
     grid-template-columns: repeat(4, 1fr);
   }
 
+  .about-grid {
+    grid-template-columns: 1.3fr 1fr;
+    align-items: start;
+  }
+
+  .about-text p {
+    margin-left: 0;
+  }
+
   .contact-actions {
     flex-direction: row;
+    justify-content: center;
   }
 
   .mobile-call-bar {
     display: none;
   }
 
-  .site-footer {
-    padding: 2.5rem 0;
+  .footer-grid {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
   }
-}
 
-@media (min-width: 960px) {
-  .service-groups {
-    grid-template-columns: repeat(4, 1fr);
+  .footer-links {
+    flex-direction: row;
+    gap: 1.5rem;
   }
 }

@@ -10,8 +10,12 @@ Explanations should be kept simple as changes are made.
 - Phone: +1 604 845 8999 (tap-to-call)
 - Email: cufflandscaping@gmail.com
 - Service areas: Greater Victoria area, including Victoria and Saanich
-- Google Business Profile: not created yet — use [GOOGLE_BUSINESS_URL]
-  placeholder for the "See our reviews on Google" link until it exists
+- Google Business Profile: created, awaiting Google verification — use
+  [GOOGLE_BUSINESS_URL] placeholder for the reviews link/button until
+  the real profile link is provided
+- Payment methods accepted: e-transfer, cash, and cheques
+- Whether design consultations are free or charged: unknown — use
+  [DESIGN_CONSULTATION_FEE] placeholder in the FAQ
 - Hours: available all the time, call to inquire
 - In business 3+ years, client base of 50+
 - Quote process: free on-site quote, reply within 24 hours
@@ -63,5 +67,15 @@ Paver patios; fencing repair; snow removal; holiday lighting installation.
 
 ## Site structure (single page)
 
-Hero (headline + call button) → Services → Photo gallery → Service areas →
-About → Contact → Footer.
+Header (logo + phone + "Get a Free Quote" button, no dropdown nav) →
+Hero (headline, CTA buttons, trust line, hero photo placeholder) →
+Why Choose Us (3 value-prop cards) → Reviews (placeholder until Google
+reviews exist) → Recent Projects (photo gallery) → What We Do (services,
+collapsed into <details> accordions — deliberately de-emphasized, not
+the main focus of the page) → About (text + stats grid) → FAQ
+(<details> accordions) → Service Area (map) → Contact → Footer (with
+quick-link nav, since the header itself has no nav links).
+
+No fake star ratings, testimonials, or review counts anywhere on the
+page — the Reviews section stays a plain placeholder until the Google
+Business Profile actually has reviews to link to.
