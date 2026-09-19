@@ -31,14 +31,19 @@ document.addEventListener("DOMContentLoaded", function () {
     yearEl.textContent = new Date().getFullYear();
   }
 
-  // The map's on-screen box is much bigger on desktop than on
-  // mobile, so it needs a more zoomed-in level to show the same
-  // sized area on mobile, or the same zoomed-in level would show a
-  // much wider region on desktop than intended. Swap to the
-  // desktop-tuned zoom once there's room for it.
+  // The map's on-screen box changes size a lot between screens, and
+  // the same zoom level shows a very different amount of area in a
+  // small box vs. a big one — so each size gets its own zoom.
+  // Three sizes, three zoom levels: phone (stacked, small box), tablet
+  // (stacked, wider box), and desktop (two columns — the map sits
+  // beside the service categories, so its box is narrower again).
   var mapFrame = document.querySelector(".map-embed iframe");
-  if (mapFrame && window.matchMedia("(min-width: 700px)").matches) {
-    mapFrame.src = mapFrame.dataset.srcDesktop;
+  if (mapFrame) {
+    if (window.matchMedia("(min-width: 900px)").matches) {
+      mapFrame.src = mapFrame.dataset.srcDesktop;
+    } else if (window.matchMedia("(min-width: 700px)").matches) {
+      mapFrame.src = mapFrame.dataset.srcTablet;
+    }
   }
 
   // Animate every <details> inside the given container: click the

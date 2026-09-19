@@ -431,50 +431,12 @@ h2 {
   color: rgba(247, 245, 240, 0.85);
 }
 
-/* ---- Why Choose Us ---- */
-.why-grid {
-  display: grid;
-  gap: 1.25rem;
-  margin-top: 2rem;
-}
-
-.why-card {
-  background: var(--color-cream);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  padding: 1.75rem 1.5rem;
-  position: relative;
-}
-
-.why-card h3 {
-  color: var(--color-forest);
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-}
-
-.why-card p {
-  color: var(--color-text-muted);
-  margin: 0 0 1rem;
-}
-
-.tag {
-  display: inline-block;
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  background: var(--color-tan);
-  color: var(--color-forest);
-  padding: 0.4rem 0.75rem;
-  border-radius: 999px;
-}
-
 /* ---- Reviews ----
    No fake star ratings or testimonials here — see the note in
    index.html. This shows a placeholder until real Google reviews
    exist. */
 .reviews-card {
-  background: var(--color-cream);
+  background: var(--color-tan);
   border: 1px dashed var(--color-border);
   border-radius: var(--radius);
   padding: 2rem 1.5rem;
@@ -665,14 +627,14 @@ h2.on-dark {
 
 .about-stats {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
 }
 
 .stat {
   background: var(--color-tan);
   border-radius: var(--radius);
-  padding: 1.1rem;
+  padding: 0.9rem 0.5rem;
   text-align: center;
 }
 
@@ -689,6 +651,30 @@ h2.on-dark {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--color-forest);
+}
+
+/* The "Fully insured" tile: full width, dark, and the biggest text in
+   the grid — the owner wants insurance to be the loudest thing here.
+   (Written as .stat.stat-insured so it reliably beats plain .stat.) */
+.stat.stat-insured {
+  grid-column: 1 / -1;
+  background: var(--color-forest);
+  padding: 1.4rem 1rem;
+}
+
+.stat.stat-insured strong {
+  font-size: 2.1rem;
+  line-height: 1.1;
+  color: var(--color-cream);
+}
+
+.stat.stat-insured span {
+  color: #e3b98a;
+}
+
+.stat-insured .stat-icon {
+  font-size: 1.6rem;
+  vertical-align: -0.1em;
 }
 
 /* ---- FAQ ---- */
@@ -794,18 +780,44 @@ h2.on-dark {
   }
 }
 
-/* ---- Service area map + fallback link ----
-   aspect-ratio keeps the map a consistent shape at any width, so the
+/* ---- Services + service area (side by side) ----
+   The category accordions and the map share one dark section: stacked
+   on phones/tablets, two columns from 900px up (accordions left, map
+   right). */
+.services-map-layout {
+  display: grid;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.area-block {
+  text-align: center;
+}
+
+.area-label {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  color: #e3b98a;
+  margin: 0 0 0.5rem;
+}
+
+.area-note {
+  color: rgba(247, 245, 240, 0.8);
+  margin: 0 0 1rem;
+}
+
+/* aspect-ratio keeps the map a consistent shape at any width, so the
    page layout doesn't jump around while the map tile loads. Capped at
-   600px wide and centered — a full-width map looked oversized, and
-   this smaller box still fits the region the map needs to show. */
+   600px wide — a full-width map looked oversized. */
 .map-embed {
-  margin: 1.5rem auto 0;
+  margin: 0 auto;
   max-width: 600px;
   aspect-ratio: 4 / 3;
   border-radius: var(--radius);
   overflow: hidden;
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(247, 245, 240, 0.2);
 }
 
 .map-embed iframe {
@@ -815,9 +827,31 @@ h2.on-dark {
 }
 
 .map-fallback-link {
-  margin-top: 0.5rem;
+  margin: 0.5rem 0 0;
   font-size: 0.9rem;
-  text-align: center;
+}
+
+/* This section is dark, so plain links (default dark green) would be
+   unreadable — same class of bug as the Contact section had once. */
+.services-dark .map-fallback-link a {
+  color: var(--color-cream);
+}
+
+@media (min-width: 900px) {
+  .services-map-layout {
+    grid-template-columns: 1fr 1.15fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  .services-map-layout .service-groups {
+    max-width: none;
+    margin: 0;
+  }
+
+  .area-block {
+    text-align: left;
+  }
 }
 
 /* ---- Contact ----
@@ -1065,10 +1099,6 @@ h2.on-dark {
   .hero-actions .btn,
   .hero-actions .pill {
     flex: 0 0 auto;
-  }
-
-  .why-grid {
-    grid-template-columns: repeat(3, 1fr);
   }
 
   .gallery-grid {

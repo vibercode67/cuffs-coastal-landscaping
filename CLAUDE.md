@@ -63,6 +63,12 @@ dethatching; sod installation (small yards); fertilizing; power washing
 (patios, driveways); gutter cleaning (if he does it); yard waste hauling;
 seasonal planters and containers; moss control.
 
+(The site deliberately does NOT list lawn aeration, overseeding,
+dethatching, or fertilizing — the owner asked for a more concise
+services list. They're still services the business offers per the
+original list above; they're just not shown on the page. Don't
+re-add them without being asked.)
+
 ### Services (winter & additional)
 Snow removal; holiday lighting installation; paver patios; fencing repair.
 (One combined category on the site — "Winter & Additional Services" —
@@ -114,10 +120,10 @@ its contact form, which conflicts with rule 4 above).
   green `#121c16` for dark sections/footer, terracotta `#c27d38` as the
   one accent color (buttons, italic emphasis, numbers).
 - **Components**: pill-shaped buttons (`border-radius: 999px`); a plain
-  uppercase "eyebrow" label above each `<h2>` (e.g. "WHY CHOOSE US" in
+  uppercase "eyebrow" label above each `<h2>` (e.g. "SERVICES" in
   Space Mono, no numbering — the site owner didn't like the numbered
-  "01 // ..." look); cards with a small mono tag pill; alternating
-  light/dark section backgrounds for rhythm.
+  "01 // ..." look); alternating light/dark section backgrounds for
+  rhythm.
 - The hero deliberately has no placeholder photo — it's a solid dark
   forest-green band with bold type instead, so it reads as an
   intentional choice rather than "missing image." Once a real hero
@@ -131,19 +137,22 @@ open/close, that opens a dropdown of CENTERED section links — a
 compact right-anchored card on desktop, a full-width bar on mobile) →
 Hero (headline, CTA buttons, trust badges) → Recent Projects (photo
 gallery, placed right after the hero; each photo has a hover-reveal
-caption naming a service category) → Why Choose Us (3 value-prop
-cards: reliable/timely, tailored plans, small dedicated crew) →
-Reviews (placeholder until Google reviews exist) → What We Do
-(services, collapsed into <details> accordions with a smooth animated
+caption naming a service category) → Reviews (links to the Google
+Business Profile; says reviews "will show up there soon" until real
+ones exist) → Services + Service Area, ONE combined dark section
+(services collapsed into <details> accordions with a smooth animated
 open/close via script.js — deliberately de-emphasized, not the page's
 main focus; 4 categories: Lawn & Garden Care, Cleanup & Seasonal
-Maintenance, Planting & Beds, Winter & Additional Services) → About
-(text + stats grid) → Service Area (map, capped at 600px wide and
-centered — was "way too big" full-width before; centered on lat/lng
-coordinates rather than a text query, since a query like "Greater
-Victoria, BC" made Google drop a stray business pin; two zoom levels
-via script.js, since the map's on-screen box is still a different size
-on mobile vs. desktop even at the smaller cap) → FAQ (heading on the
+Maintenance, Planting & Beds, Winter & Additional Services. On desktop
+(900px+) the accordions sit on the LEFT and the "Where we work" text +
+map on the RIGHT; on phones/tablets they stack, map below. The map is
+capped at 600px wide, centered on lat/lng coordinates rather than a
+text query — a query like "Greater Victoria, BC" made Google drop a
+stray business pin — and uses THREE zoom levels picked in script.js
+(z=10 phone, z=12 tablet, z=11 two-column desktop), because the same
+zoom shows very different areas in different-sized boxes) → About
+(text + a 3-tile stats row, plus a full-width dark "Fully insured"
+tile — the owner wants insurance to be the loudest thing there) → FAQ (heading on the
 left, animated <details> accordion list on the right, via the
 `.split-layout` pattern — see below) → Contact (heading + call/email
 buttons on the left, the quote form on the right, same
@@ -152,6 +161,13 @@ header's hamburger menu, now including FAQ).
 
 The FAQ was removed once, then re-added at the site owner's request
 with a different question set.
+
+There is no "Why Choose Us" section anymore — the owner felt it just
+repeated the About section, so it was removed (2026-09-19). Its one
+useful idea lives on as a FAQ item ("Who will be working on my
+property?"). Note that section had made a few claims that were never
+actually confirmed by the owner (e.g. "no rotating subcontractors",
+"we show up when we say we will") — don't reintroduce those.
 
 ### The `.split-layout` pattern (FAQ and Contact)
 
