@@ -13,9 +13,12 @@ Explanations should be kept simple as changes are made.
   Oak Bay, Gordon Head, and Esquimalt, BC (all confirmed by the site
   owner — Gordon Head is a neighbourhood within Saanich, mentioned by
   name at the site owner's request)
-- Google Business Profile: created, awaiting Google verification — use
-  [GOOGLE_BUSINESS_URL] placeholder for the reviews link/button until
-  the real profile link is provided
+- Google Business Profile: https://maps.app.goo.gl/aHWSuG1cP7B1a3Hs6 —
+  linked from the Reviews section button and the JSON-LD `sameAs`
+  field. No reviews yet as of 2026-09-19 (the owner expects one or two
+  soon), so the Reviews section says reviews "will show up there soon"
+  rather than claiming any exist. Update that copy once real reviews
+  are in — and never add fake ones.
 - Payment methods accepted: e-transfer, cash, and cheques
 - Hours: available all the time, call to inquire
 - In business 3+ years, client base of 50+
