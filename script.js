@@ -1,8 +1,7 @@
 // Cuff's Coastal Landscaping — minimal site JavaScript.
-// Four jobs: toggle the hamburger menu open/closed, keep the footer's
+// Three jobs: toggle the hamburger menu open/closed, keep the footer's
 // copyright year correct without editing it by hand every January,
-// pick the right map zoom level for the screen size, and animate the
-// Services/FAQ accordions open and closed smoothly. (They're still
+// and animate the Services/FAQ accordions open and closed smoothly. (They're still
 // real <details>/<summary> elements underneath — this just adds a
 // transition on top instead of the instant native snap-open.)
 
@@ -29,21 +28,6 @@ document.addEventListener("DOMContentLoaded", function () {
   var yearEl = document.getElementById("year");
   if (yearEl) {
     yearEl.textContent = new Date().getFullYear();
-  }
-
-  // The map's on-screen box changes size a lot between screens, and
-  // the same zoom level shows a very different amount of area in a
-  // small box vs. a big one — so each size gets its own zoom.
-  // Three sizes, three zoom levels: phone (stacked, small box), tablet
-  // (stacked, wider box), and desktop (two columns — the map sits
-  // beside the service categories, so its box is narrower again).
-  var mapFrame = document.querySelector(".map-embed iframe");
-  if (mapFrame) {
-    if (window.matchMedia("(min-width: 900px)").matches) {
-      mapFrame.src = mapFrame.dataset.srcDesktop;
-    } else if (window.matchMedia("(min-width: 700px)").matches) {
-      mapFrame.src = mapFrame.dataset.srcTablet;
-    }
   }
 
   // Animate every <details> inside the given container: click the

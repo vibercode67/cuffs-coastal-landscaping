@@ -780,80 +780,6 @@ h2.on-dark {
   }
 }
 
-/* ---- Services + service area (side by side) ----
-   The category accordions and the map share one dark section: stacked
-   on phones/tablets, two columns from 900px up (accordions left, map
-   right). */
-.services-map-layout {
-  display: grid;
-  gap: 2rem;
-  margin-top: 1.5rem;
-}
-
-.area-block {
-  text-align: center;
-}
-
-.area-label {
-  font-family: var(--font-mono);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 0.75rem;
-  color: #e3b98a;
-  margin: 0 0 0.5rem;
-}
-
-.area-note {
-  color: rgba(247, 245, 240, 0.8);
-  margin: 0 0 1rem;
-}
-
-/* aspect-ratio keeps the map a consistent shape at any width, so the
-   page layout doesn't jump around while the map tile loads. Capped at
-   600px wide — a full-width map looked oversized. */
-.map-embed {
-  margin: 0 auto;
-  max-width: 600px;
-  aspect-ratio: 4 / 3;
-  border-radius: var(--radius);
-  overflow: hidden;
-  border: 1px solid rgba(247, 245, 240, 0.2);
-}
-
-.map-embed iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-.map-fallback-link {
-  margin: 0.5rem 0 0;
-  font-size: 0.9rem;
-}
-
-/* This section is dark, so plain links (default dark green) would be
-   unreadable — same class of bug as the Contact section had once. */
-.services-dark .map-fallback-link a {
-  color: var(--color-cream);
-}
-
-@media (min-width: 900px) {
-  .services-map-layout {
-    grid-template-columns: 1fr 1.15fr;
-    gap: 2.5rem;
-    align-items: start;
-  }
-
-  .services-map-layout .service-groups {
-    max-width: none;
-    margin: 0;
-  }
-
-  .area-block {
-    text-align: left;
-  }
-}
-
 /* ---- Contact ----
    Both this and .services-dark are written as ".section.contact-dark"
    (two classes on the same selector), not just ".contact-dark" alone.
@@ -1019,14 +945,32 @@ h2.on-dark {
   font-size: 1.2rem;
 }
 
-.footer-links {
+/* Small square map tucked into the footer, beside the "Serving..."
+   text. Same size on every screen, so one zoom level is enough. */
+.footer-map {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 0.5rem;
-  font-family: var(--font-mono);
+  flex-shrink: 0;
+}
+
+.footer-map-frame {
+  width: 220px;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid rgba(247, 245, 240, 0.25);
+}
+
+.footer-map-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.footer-map-link {
   font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 
 .copyright {
@@ -1126,12 +1070,8 @@ h2.on-dark {
   .footer-grid {
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     text-align: left;
-  }
-
-  .footer-links {
-    flex-direction: row;
-    gap: 1.5rem;
   }
 
   /* On wider screens the dropdown becomes a compact card anchored

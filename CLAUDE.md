@@ -139,25 +139,29 @@ Hero (headline, CTA buttons, trust badges) → Recent Projects (photo
 gallery, placed right after the hero; each photo has a hover-reveal
 caption naming a service category) → Reviews (links to the Google
 Business Profile; says reviews "will show up there soon" until real
-ones exist) → Services + Service Area, ONE combined dark section
-(services collapsed into <details> accordions with a smooth animated
-open/close via script.js — deliberately de-emphasized, not the page's
-main focus; 4 categories: Lawn & Garden Care, Cleanup & Seasonal
-Maintenance, Planting & Beds, Winter & Additional Services. On desktop
-(900px+) the accordions sit on the LEFT and the "Where we work" text +
-map on the RIGHT; on phones/tablets they stack, map below. The map is
-capped at 600px wide, centered on lat/lng coordinates rather than a
-text query — a query like "Greater Victoria, BC" made Google drop a
-stray business pin — and uses THREE zoom levels picked in script.js
-(z=10 phone, z=12 tablet, z=11 two-column desktop), because the same
-zoom shows very different areas in different-sized boxes) → About
+ones exist) → Services (dark section; collapsed into <details>
+accordions with a smooth animated open/close via script.js —
+deliberately de-emphasized, not the page's main focus; 4 categories:
+Lawn & Garden Care, Cleanup & Seasonal Maintenance, Planting & Beds,
+Winter & Additional Services) → About
 (text + a 3-tile stats row, plus a full-width dark "Fully insured"
 tile — the owner wants insurance to be the loudest thing there) → FAQ (heading on the
 left, animated <details> accordion list on the right, via the
 `.split-layout` pattern — see below) → Contact (heading + call/email
 buttons on the left, the quote form on the right, same
-`.split-layout` pattern) → Footer (with quick-link nav matching the
-header's hamburger menu, now including FAQ).
+`.split-layout` pattern) → Footer (brand, phone/email, the "Serving
+the Greater Victoria area, including ..." line, and a SMALL SQUARE
+220px map beside it — the owner didn't like the map as its own big
+section, and dropped the footer's quick-link list because the
+hamburger menu already does that job).
+
+The map uses plain lat/lng coordinates (48.45,-123.37, z=10), never a
+text place name: a query like "Greater Victoria, BC" made Google drop a
+stray business pin. Its box is the same size on every screen, so one
+zoom level is enough (an earlier version needed three zoom levels
+because the box changed size; that machinery was removed). If the map
+box is ever resized, re-test the zoom against its real pixel size —
+the same zoom shows very different areas in different-sized boxes.
 
 The FAQ was removed once, then re-added at the site owner's request
 with a different question set.

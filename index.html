@@ -225,97 +225,58 @@
           everyday and the big jobs. Tap a category to see the full list.
         </p>
 
-        <div class="services-map-layout">
-          <div class="service-groups">
-            <details>
-              <summary><span>Lawn &amp; Garden Care</span></summary>
-              <div class="accordion-panel"><div class="accordion-panel-inner">
-                <ul>
-                  <li>Regular lawn and garden maintenance</li>
-                  <li>Lawn mowing and edging</li>
-                  <li>Moss control</li>
-                  <li>Sod installation (small yards)</li>
-                </ul>
-              </div></div>
-            </details>
+        <div class="service-groups">
+          <details>
+            <summary><span>Lawn &amp; Garden Care</span></summary>
+            <div class="accordion-panel"><div class="accordion-panel-inner">
+              <ul>
+                <li>Regular lawn and garden maintenance</li>
+                <li>Lawn mowing and edging</li>
+                <li>Moss control</li>
+                <li>Sod installation (small yards)</li>
+              </ul>
+            </div></div>
+          </details>
 
-            <details>
-              <summary><span>Cleanup &amp; Seasonal Maintenance</span></summary>
-              <div class="accordion-panel"><div class="accordion-panel-inner">
-                <ul>
-                  <li>Spring and fall cleanups</li>
-                  <li>Leaf removal</li>
-                  <li>Hedge and shrub trimming</li>
-                  <li>Pruning</li>
-                  <li>Weeding</li>
-                  <li>Yard waste hauling</li>
-                  <li>Gutter cleaning</li>
-                  <li>Power washing (patios, driveways)</li>
-                </ul>
-              </div></div>
-            </details>
+          <details>
+            <summary><span>Cleanup &amp; Seasonal Maintenance</span></summary>
+            <div class="accordion-panel"><div class="accordion-panel-inner">
+              <ul>
+                <li>Spring and fall cleanups</li>
+                <li>Leaf removal</li>
+                <li>Hedge and shrub trimming</li>
+                <li>Pruning</li>
+                <li>Weeding</li>
+                <li>Yard waste hauling</li>
+                <li>Gutter cleaning</li>
+                <li>Power washing (patios, driveways)</li>
+              </ul>
+            </div></div>
+          </details>
 
-            <details>
-              <summary><span>Planting &amp; Beds</span></summary>
-              <div class="accordion-panel"><div class="accordion-panel-inner">
-                <ul>
-                  <li>Garden bed installation and maintenance</li>
-                  <li>Planting (flowers, shrubs, small trees)</li>
-                  <li>Mulching and bark mulch</li>
-                  <li>Seasonal planters and containers</li>
-                </ul>
-              </div></div>
-            </details>
+          <details>
+            <summary><span>Planting &amp; Beds</span></summary>
+            <div class="accordion-panel"><div class="accordion-panel-inner">
+              <ul>
+                <li>Garden bed installation and maintenance</li>
+                <li>Planting (flowers, shrubs, small trees)</li>
+                <li>Mulching and bark mulch</li>
+                <li>Seasonal planters and containers</li>
+              </ul>
+            </div></div>
+          </details>
 
-            <details>
-              <summary><span>Winter &amp; Additional Services</span></summary>
-              <div class="accordion-panel"><div class="accordion-panel-inner">
-                <ul>
-                  <li>Snow removal</li>
-                  <li>Holiday lighting installation</li>
-                  <li>Paver patios</li>
-                  <li>Fencing repair</li>
-                </ul>
-              </div></div>
-            </details>
-          </div>
-
-          <div class="area-block">
-            <p class="area-label">Where we work</p>
-            <p class="area-note">We proudly serve the Greater Victoria area, including Victoria, Saanich, Oak Bay, Gordon Head, and Esquimalt, BC.</p>
-
-            <!--
-              Centered on coordinates (not a place name) on purpose — a
-              text query like "Greater Victoria, BC" made Google drop a
-              business pin (e.g. a random tourism office) on the map.
-              A plain lat/lng center avoids that.
-
-              Three zoom levels, not one: the map's on-screen box is a
-              very different size on a phone, a tablet, and a wide
-              two-column desktop layout, so the SAME zoom level shows
-              very different amounts of area on each. script.js picks
-              the right one for the screen width; the src set here
-              (the phone one) is the fallback if JavaScript is off.
-            -->
-            <div class="map-embed">
-              <iframe
-                title="Map of the Greater Victoria region"
-                src="https://www.google.com/maps?q=48.43,-123.31&z=10&output=embed"
-                data-src-mobile="https://www.google.com/maps?q=48.43,-123.31&z=10&output=embed"
-                data-src-tablet="https://www.google.com/maps?q=48.43,-123.31&z=12&output=embed"
-                data-src-desktop="https://www.google.com/maps?q=48.43,-123.31&z=11&output=embed"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </div>
-            <!-- Plain link fallback: some browsers/ad-blockers block map
-                 embeds outright, so this always works even if the iframe above doesn't load. -->
-            <p class="map-fallback-link">
-              <a href="https://www.google.com/maps/@48.43,-123.31,11z" target="_blank" rel="noopener">
-                Open in Google Maps
-              </a>
-            </p>
-          </div>
+          <details>
+            <summary><span>Winter &amp; Additional Services</span></summary>
+            <div class="accordion-panel"><div class="accordion-panel-inner">
+              <ul>
+                <li>Snow removal</li>
+                <li>Holiday lighting installation</li>
+                <li>Paver patios</li>
+                <li>Fencing repair</li>
+              </ul>
+            </div></div>
+          </details>
         </div>
       </div>
     </section>
@@ -520,13 +481,29 @@
           </p>
           <p>Serving the Greater Victoria area, including Victoria, Saanich, Oak Bay, Gordon Head &amp; Esquimalt, BC</p>
         </div>
-        <nav class="footer-links" aria-label="Quick links">
-          <a href="#gallery">Recent Projects</a>
-          <a href="#services">Services</a>
-          <a href="#about">About</a>
-          <a href="#faq">FAQ</a>
-          <a href="#contact">Contact</a>
-        </nav>
+        <!--
+          Small square map, deliberately tucked in the footer beside
+          the "Serving..." text (the owner didn't like it as its own
+          big section). Centered on plain lat/lng coordinates, NOT a
+          place name: a text query like "Greater Victoria, BC" made
+          Google drop a stray business pin on the map. The box is the
+          same small size on every screen, so one zoom level (z=10) is
+          enough — tuned so Langford, Saanich Core, Victoria, Cordova
+          Bay and Discovery Island all fit.
+        -->
+        <div class="footer-map">
+          <div class="footer-map-frame">
+            <iframe
+              title="Map of the Greater Victoria area"
+              src="https://www.google.com/maps?q=48.45,-123.37&z=10&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+          <!-- Plain link fallback: some browsers/ad-blockers block map
+               embeds outright, so this always works. -->
+          <a class="footer-map-link" href="https://www.google.com/maps/@48.45,-123.37,10z" target="_blank" rel="noopener">Open in Google Maps</a>
+        </div>
       </div>
       <p class="copyright">&copy; <span id="year"></span> Cuff's Coastal Landscaping</p>
     </div>
