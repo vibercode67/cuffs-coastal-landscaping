@@ -205,3 +205,18 @@ written as `.section.contact-dark` / `.section.services-dark` (two
 classes combined) specifically to outrank the nth-of-type rule
 regardless of section order. Follow that same pattern for any new
 dark-background section added later.
+
+## Another CSS gotcha: buttons don't inherit font size
+
+Browsers give `<button>`, `<input>`, `<textarea>` and `<select>` their
+own default font size (~13px for buttons) instead of inheriting the
+page's 16px. A `<button class="btn">` therefore looked noticeably
+smaller than an identical-looking `<a class="btn">` link — the quote
+form's submit button vs. the "Call" button beside it. The global rule
+`input, textarea, select, button { font: inherit; }` fixes it at the
+root; keep it, and don't replace it with `font-family: inherit` alone.
+
+Similarly, the hamburger icon's three bars are drawn as three
+backgrounds of ONE element (not `::before`/`::after` pseudo-elements),
+because pseudo-element bars could land a device pixel off from the
+middle bar on some phones and look uneven.

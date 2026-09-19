@@ -78,11 +78,13 @@ img {
   display: block;
 }
 
-/* Browsers give form controls their own default UI font instead of
-   inheriting the page's — this line is what actually keeps text
-   uniform across every element, not just headings/paragraphs. */
+/* Browsers give form controls their own default UI font AND font size
+   (buttons default to ~13px) instead of inheriting the page's — this is
+   what keeps text uniform across every element, and why a <button>
+   would otherwise look smaller than an identical-looking <a> link
+   button. */
 input, textarea, select, button {
-  font-family: inherit;
+  font: inherit;
 }
 
 a {
@@ -274,6 +276,7 @@ h2 {
    row so the header itself stays uncluttered. */
 .nav-toggle {
   background: none;
+  padding: 0; /* drop the browser's default button padding */
   border: 1px solid var(--color-border);
   border-radius: 999px;
   width: 2.2rem;
@@ -285,29 +288,21 @@ h2 {
   cursor: pointer;
 }
 
-.hamburger,
-.hamburger::before,
-.hamburger::after {
+/* The three bars are drawn as three backgrounds of ONE element, so they
+   always share exactly the same width and left edge and are centered
+   together. (An earlier version built the top/bottom bars from
+   ::before/::after pseudo-elements, which can end up a device pixel off
+   from the middle bar on some phones — the bars looked long/short/long.)
+   flex-shrink: 0 stops the button's flex layout from squeezing it. */
+.hamburger {
   display: block;
+  flex-shrink: 0;
   width: 1.1rem;
-  height: 2px;
-  background: var(--color-forest);
-  position: relative;
-}
-
-.hamburger::before,
-.hamburger::after {
-  content: "";
-  position: absolute;
-  left: 0;
-}
-
-.hamburger::before {
-  top: -5px;
-}
-
-.hamburger::after {
-  top: 5px;
+  height: 0.75rem;
+  background:
+    linear-gradient(var(--color-forest), var(--color-forest)) top / 100% 2px no-repeat,
+    linear-gradient(var(--color-forest), var(--color-forest)) center / 100% 2px no-repeat,
+    linear-gradient(var(--color-forest), var(--color-forest)) bottom / 100% 2px no-repeat;
 }
 
 .visually-hidden {
@@ -394,6 +389,17 @@ h2 {
   font-size: 2rem;
   color: var(--color-cream);
   margin-bottom: 1rem;
+}
+
+/* The small label above the headline — bumped up from the site-wide
+   eyebrow size because it was hard to read against the dark hero. */
+.hero .eyebrow {
+  font-size: 0.95rem;
+}
+
+.hero-sub strong {
+  color: var(--color-cream);
+  font-weight: 700;
 }
 
 .hero-sub {
@@ -663,7 +669,7 @@ h2.on-dark {
 }
 
 .stat.stat-insured strong {
-  font-size: 2.1rem;
+  font-size: 1.9rem;
   line-height: 1.1;
   color: var(--color-cream);
 }
@@ -942,7 +948,9 @@ h2.on-dark {
 
 .footer-brand {
   font-family: var(--font-serif);
-  font-size: 1.2rem;
+  font-size: 1.9rem;
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
 }
 
 /* Small square map tucked into the footer, beside the "Serving..."
@@ -1016,6 +1024,14 @@ h2.on-dark {
 
   .brand-text {
     font-size: 1.4rem;
+  }
+
+  .hero .eyebrow {
+    font-size: 1.05rem;
+  }
+
+  .footer-brand {
+    font-size: 2.6rem;
   }
 
   h2 {
